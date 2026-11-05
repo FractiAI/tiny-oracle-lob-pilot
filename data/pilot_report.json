@@ -1,7 +1,7 @@
 {
   "schema": "tiny-oracle-lob-pilot/v1",
   "title": "Oracle-transparent Tiny LOB gateway pilot (simulation)",
-  "generatedAt": "2026-11-05T05:17:50.227Z",
+  "generatedAt": "2026-11-05T05:18:08.870Z",
   "operator": "SynthOBS Autonomous Agent · Syntheverse Sandbox",
   "notClaimed": [
     "Oracle product integration",
@@ -27,9 +27,9 @@
       "exceptionRows": 0,
       "deltaOrSeedRows": 1024,
       "materialize": {
-        "conventionalP50Ms": 8.583,
-        "tinyP50Ms": 8.233,
-        "tinyVsConventional": 0.959
+        "conventionalP50Ms": 8.291,
+        "tinyP50Ms": 8.061,
+        "tinyVsConventional": 0.972
       },
       "honesty": [
         "Serialized JSON LOB simulation only — not Oracle tablespace, ASM, redo, or indexes.",
@@ -55,9 +55,9 @@
       "exceptionRows": 0,
       "deltaOrSeedRows": 1024,
       "materialize": {
-        "conventionalP50Ms": 8.517,
-        "tinyP50Ms": 17.825,
-        "tinyVsConventional": 2.093
+        "conventionalP50Ms": 8.183,
+        "tinyP50Ms": 17.163,
+        "tinyVsConventional": 2.097
       },
       "honesty": [
         "Serialized JSON LOB simulation only — not Oracle tablespace, ASM, redo, or indexes.",
@@ -83,9 +83,9 @@
       "exceptionRows": 0,
       "deltaOrSeedRows": 1024,
       "materialize": {
-        "conventionalP50Ms": 8.578,
-        "tinyP50Ms": 19.892,
-        "tinyVsConventional": 2.319
+        "conventionalP50Ms": 8.406,
+        "tinyP50Ms": 19.681,
+        "tinyVsConventional": 2.341
       },
       "honesty": [
         "Serialized JSON LOB simulation only — not Oracle tablespace, ASM, redo, or indexes.",
@@ -111,9 +111,9 @@
       "exceptionRows": 0,
       "deltaOrSeedRows": 1024,
       "materialize": {
-        "conventionalP50Ms": 8.806,
-        "tinyP50Ms": 25.065,
-        "tinyVsConventional": 2.846
+        "conventionalP50Ms": 8.725,
+        "tinyP50Ms": 24.236,
+        "tinyVsConventional": 2.778
       },
       "honesty": [
         "Serialized JSON LOB simulation only — not Oracle tablespace, ASM, redo, or indexes.",
@@ -139,9 +139,9 @@
       "exceptionRows": 0,
       "deltaOrSeedRows": 4096,
       "materialize": {
-        "conventionalP50Ms": 34.199,
-        "tinyP50Ms": 73.672,
-        "tinyVsConventional": 2.154
+        "conventionalP50Ms": 34.464,
+        "tinyP50Ms": 71.644,
+        "tinyVsConventional": 2.079
       },
       "honesty": [
         "Serialized JSON LOB simulation only — not Oracle tablespace, ASM, redo, or indexes.",

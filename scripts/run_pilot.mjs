@@ -107,7 +107,7 @@ md.push(
 );
 md.push('');
 md.push(
-  '**Yes, in this simulation.** Every workload rebuilt documents exactly (byte-for-byte JSON equality). Footprint fell a lot when documents nearly matched; it fell less when almost every leaf differed. Rebuild was a bit slower than reading a full copy, which is the expected trade.',
+  '**Yes, in this simulation.** Every workload rebuilt documents exactly (byte-for-byte JSON equality). Footprint fell a lot when documents nearly matched; it fell less when almost every leaf differed. Exact-identical LOBs rebuilt at about the same speed as cloning full copies; near-duplicate rebuilds cost about **2×–3×** materialize time for the storage win.',
 );
 md.push('');
 md.push('## Numbers (serialized bytes)');

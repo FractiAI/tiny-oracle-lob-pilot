@@ -4,17 +4,17 @@
 
 We asked: if Oracle-like claim packets (JSON LOBs) shared one organization and only some fields changed, could a Tiny-style gateway store a template once, keep small deltas, and rebuild the full document on read — without changing what the client eventually sees?
 
-**Yes, in this simulation.** Every workload rebuilt documents exactly (byte-for-byte JSON equality). Footprint fell a lot when documents nearly matched; it fell less when almost every leaf differed. Rebuild was a bit slower than reading a full copy, which is the expected trade.
+**Yes, in this simulation.** Every workload rebuilt documents exactly (byte-for-byte JSON equality). Footprint fell a lot when documents nearly matched; it fell less when almost every leaf differed. Exact-identical LOBs rebuilt at about the same speed as cloning full copies; near-duplicate rebuilds cost about **2×–3×** materialize time for the storage win.
 
 ## Numbers (serialized bytes)
 
 | Workload | Rows | Conventional | Tiny gateway | Reduction | Rebuild exact | Tiny materialize vs conventional |
 |---|---:|---:|---:|---:|---|---:|
-| identical_lobs_n1024 | 1024 | 588800 B | 28179 B | **95.21%** | yes | 0.959× |
-| high_rhyme_claims_n1024 | 1024 | 666831 B | 229361 B | **65.6%** | yes | 2.093× |
-| medium_rhyme_claims_n1024 | 1024 | 655864 B | 283601 B | **56.76%** | yes | 2.319× |
-| low_rhyme_claims_n1024 | 1024 | 667766 B | 497279 B | **25.53%** | yes | 2.846× |
-| high_rhyme_claims_n4096 | 4096 | 2667324 B | 919146 B | **65.54%** | yes | 2.154× |
+| identical_lobs_n1024 | 1024 | 588800 B | 28179 B | **95.21%** | yes | 0.972× |
+| high_rhyme_claims_n1024 | 1024 | 666831 B | 229361 B | **65.6%** | yes | 2.097× |
+| medium_rhyme_claims_n1024 | 1024 | 655864 B | 283601 B | **56.76%** | yes | 2.341× |
+| low_rhyme_claims_n1024 | 1024 | 667766 B | 497279 B | **25.53%** | yes | 2.778× |
+| high_rhyme_claims_n4096 | 4096 | 2667324 B | 919146 B | **65.54%** | yes | 2.079× |
 
 Best cut in this run: **95.21%** on `identical_lobs_n1024`.
 
