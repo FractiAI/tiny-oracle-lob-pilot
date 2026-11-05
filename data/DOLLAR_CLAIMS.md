@@ -2,7 +2,7 @@
 
 ## Pair
 
-- **~37% more concurrent sessions** → extra earn / day (same fleet): see [`EARNINGS_PER_DAY.md`](./EARNINGS_PER_DAY.md) — e.g. **~$3,910/day** on 64× H100.
+- **~37% more concurrent sessions** → datacenter extra earn / day: **~$125k/day** on 16,384× H100 (see [`EARNINGS_PER_DAY.md`](./EARNINGS_PER_DAY.md)).
 - **~66% storage freed** → datacenter **storage-unit CapEx avoided**: see [`STORAGE_SAVINGS_DATACENTER.md`](./STORAGE_SAVINGS_DATACENTER.md).
 
 ## $ saved · 66% storage utilization (AWS datacenter scale)
@@ -33,7 +33,7 @@ The earlier ~$106/mo figure was only a 10 TiB S3 Standard retail line — not da
 
 About 37% more concurrent sessions and about 66% storage freed on rhyming LOBs.
 
-On an illustrative 512× H100 pod, ~37% more sessions is about $694,484/mo less on-demand GPU spend for the same concurrency (~$8,333,811/yr), or ~$951,443/mo of avoided expansion if you keep all 512.
+At datacenter scale, ~37% more concurrent sessions on a **16,384× H100** hall-class fleet is about **$1,000,971/day** extra if that capacity sells ($365,604,530/yr). A **65,536× H100** campus-class fleet is about **$4,003,883/day**. Same concurrency with fewer GPUs avoids about **$22,223,497/mo** on the 16k fleet.
 
 At datacenter scale, ~66% freed on a 10 PB pool with 70% eligible rhyming LOBs is ~4,620 TB avoided. That is roughly $161,700 burdened nearline-HDD CapEx avoided, or $2,360,820–$4,851,000 if that capacity would have been enterprise NVMe (365–750/TB media × 1.4× burden). Annual carrying (tiered TCO band) on that freed slice is about $83,160/yr.
 

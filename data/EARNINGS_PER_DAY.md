@@ -1,44 +1,45 @@
-# Extra earnings per day from ~37% more concurrent sessions
+# Extra earnings per day from ~37% more concurrent sessions — **datacenter scale**
 
-**Claim:** ~**37% more concurrent sessions** when the box is limited by weight-counted resident memory.
+## Identity
 
-**Earning identity (same fleet, demand absorbs the extra slots):**  
-extra daily revenue ≈ **37% × what that fleet already earns per day from sessions**.
+Same fleet, demand fills the new slots:
 
-Two ways to put a dollar on that:
+**extra $/day ≈ 37% × GPUs × $6.88/GPU-hr × 24**
 
-1. **Capacity proxy (cloud / infra):** treat sellable GPU time as the meter — on-demand H100 ≈ **$6.88/GPU-hr**. Extra earn/day = `0.37 × GPUs × $6.88 × 24`.
-2. **Session ASP (app / API):** extra earn/day = `0.37 × baseline_sessions_per_day × $/session`.
+(Illustrative on-demand H100 capacity proxy — p5.48xlarge ÷ 8. Not private pricing.)
 
-## Lead table — capacity proxy (same GPUs, +37% sessions sold)
+## Lead table
 
-| Fleet | Baseline capacity value / day | **Extra earn / day (+37%)** | Extra / month (~30.4 d) |
-|---|---:|---:|---:|
-| 1× H100 | $165 | **~$61** | ~$1.9k |
-| 8× H100 (one p5.48xlarge) | $1,321 | **~$489** | ~$15k |
-| 64× H100 | $10,567 | **~$3,910** | ~$119k |
-| 512× H100 pod | $84,536 | **~$31,280** | ~$952k |
+| Fleet | Baseline capacity value / day | **Extra earn / day (+37%)** | Extra / month | Extra / year |
+|---|---:|---:|---:|---:|
+| 512× H100 (pod) | $84,541 | **$31,280** | $952,095 | $11,425,142 |
+| 2,048× H100 (cluster) | $338,166 | **$125,121** | $3,808,381 | $45,700,566 |
+| 8,192× H100 (AZ / superpod slice) | $1,352,663 | **$500,485** | $15,233,522 | $182,802,265 |
+| 16,384× H100 (datacenter hall-class) | $2,705,326 | **$1,000,971** | $30,467,044 | $365,604,530 |
+| 65,536× H100 (multi-hall / campus-class) | $10,821,304 | **$4,003,883** | $121,868,177 | $1,462,418,119 |
 
-One breath: **a 64× H100 fleet earns about ~$3.9k extra per day** if the +37% concurrent sessions are sold at the same effective GPU-capacity price; a **512-GPU pod ~$31k/day**.
+## One breath
 
-## Session ASP examples (64× H100)
+At datacenter scale, ~37% more concurrent sessions on a **16,384× H100** hall-class fleet is about **$1,000,971/day** extra if that capacity sells ($365,604,530/yr). A **65,536× H100** campus-class fleet is about **$4,003,883/day**. Same concurrency with fewer GPUs avoids about **$22,223,497/mo** on the 16k fleet.
 
-Illustrative baseline: 4 session-slots / GPU-hr → ~6,144 sessions/day before Tiny → **+~2,273 sessions/day** at +37%.
+## Same concurrency · GPU bill avoided (datacenter fleets)
 
-| ASP $/session | Extra sessions / day | **Extra earn / day** |
-|---:|---:|---:|
-| $0.05 | ~2,273 | **~$114** |
-| $0.10 | ~2,273 | **~$227** |
-| $0.25 | ~2,273 | **~$568** |
-| $1.00 | ~2,273 | **~$2,273** |
+If you hold concurrency flat and shrink the fleet by ~27% (1/1.37):
 
-Plug in your real ASP: `extra_$/day = 0.37 × your_sessions_per_day × your_$/session`.
+| Fleet | **GPU $ saved / month** | / year |
+|---|---:|---:|
+| 512× H100 (pod) | **$694,484** | $8,333,811 |
+| 2,048× H100 (cluster) | **$2,777,937** | $33,335,245 |
+| 8,192× H100 (AZ / superpod slice) | **$11,111,748** | $133,340,981 |
+| 16,384× H100 (datacenter hall-class) | **$22,223,497** | $266,681,961 |
+| 65,536× H100 (multi-hall / campus-class) | **$88,893,987** | $1,066,727,846 |
+
+## Pair with storage CapEx (66% freed)
+
+See [`STORAGE_SAVINGS_DATACENTER.md`](./STORAGE_SAVINGS_DATACENTER.md) — e.g. 10 PB → ~$2.4M–$4.9M NVMe CapEx avoided.
 
 ## Honesty
 
-- Requires **demand** for the extra concurrency — empty slots are not earnings.
-- $6.88/GPU-hr is an illustrative public on-demand list proxy (p5.48xlarge ÷ 8), not private/spot revenue.
-- This is **revenue / capacity value**, not GPU cost savings (those are the “fewer GPUs for same concurrency” tables).
-- Not an AWS invoice.
-
-Reproduce: `npm run dollars` (see also `data/DOLLAR_CLAIMS.md`).
+- Fleet sizes are **illustrative datacenter classes**, not a named AWS region headcount.
+- Earnings require demand for the extra concurrency.
+- $6.88/GPU-hr is a public list proxy, not AWS private/spot revenue.

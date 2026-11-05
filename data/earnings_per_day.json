@@ -1,60 +1,66 @@
 {
-  "schema": "tiny-oracle-lob-pilot/earnings-per-day/v1",
-  "generatedAt": "2026-11-05T05:28:26.020Z",
+  "schema": "tiny-oracle-lob-pilot/earnings-per-day/v2",
+  "generatedAt": "2026-11-05T05:31:42.867Z",
   "claim": "~37% more concurrent sessions (weight-counted resident memory)",
-  "identity": "extra_daily_revenue ≈ 0.37 × baseline_daily_session_revenue (same fleet, demand fills slots)",
+  "scale": "datacenter GPU fleet",
   "capacityProxyUsdPerGpuHour": 6.88,
+  "identity": "extra_$/day = 0.37 × GPUs × $6.88/GPU-hr × 24h (same fleet, demand fills slots). Same-concurrency GPU $ saved = fleet_bill × 0.37/1.37.",
+  "oneBreath": "At datacenter scale, ~37% more concurrent sessions on a **16,384× H100** hall-class fleet is about **$1,000,971/day** extra if that capacity sells ($365,604,530/yr). A **65,536× H100** campus-class fleet is about **$4,003,883/day**. Same concurrency with fewer GPUs avoids about **$22,223,497/mo** on the 16k fleet.",
   "fleets": [
     {
-      "name": "1× H100",
-      "gpus": 1,
-      "baselineCapacityValuePerDayUsd": 165,
-      "extraEarnPerDayUsd": 61,
-      "extraEarnPerMonthUsd": 1860
-    },
-    {
-      "name": "8× H100 (p5.48xlarge)",
-      "gpus": 8,
-      "baselineCapacityValuePerDayUsd": 1321,
-      "extraEarnPerDayUsd": 489,
-      "extraEarnPerMonthUsd": 14876
-    },
-    {
-      "name": "64× H100",
-      "gpus": 64,
-      "baselineCapacityValuePerDayUsd": 10568,
-      "extraEarnPerDayUsd": 3910,
-      "extraEarnPerMonthUsd": 119012
-    },
-    {
-      "name": "512× H100 pod",
+      "name": "512× H100 (pod)",
       "gpus": 512,
       "baselineCapacityValuePerDayUsd": 84541,
       "extraEarnPerDayUsd": 31280,
-      "extraEarnPerMonthUsd": 952095
+      "extraEarnPerMonthUsd": 952095,
+      "extraEarnPerYearUsd": 11425142,
+      "sameConcurrencyGpuBillSavedPerMonthUsd": 694484,
+      "sameConcurrencyGpuBillSavedPerYearUsd": 8333811
+    },
+    {
+      "name": "2,048× H100 (cluster)",
+      "gpus": 2048,
+      "baselineCapacityValuePerDayUsd": 338166,
+      "extraEarnPerDayUsd": 125121,
+      "extraEarnPerMonthUsd": 3808381,
+      "extraEarnPerYearUsd": 45700566,
+      "sameConcurrencyGpuBillSavedPerMonthUsd": 2777937,
+      "sameConcurrencyGpuBillSavedPerYearUsd": 33335245
+    },
+    {
+      "name": "8,192× H100 (AZ / superpod slice)",
+      "gpus": 8192,
+      "baselineCapacityValuePerDayUsd": 1352663,
+      "extraEarnPerDayUsd": 500485,
+      "extraEarnPerMonthUsd": 15233522,
+      "extraEarnPerYearUsd": 182802265,
+      "sameConcurrencyGpuBillSavedPerMonthUsd": 11111748,
+      "sameConcurrencyGpuBillSavedPerYearUsd": 133340981
+    },
+    {
+      "name": "16,384× H100 (datacenter hall-class)",
+      "gpus": 16384,
+      "baselineCapacityValuePerDayUsd": 2705326,
+      "extraEarnPerDayUsd": 1000971,
+      "extraEarnPerMonthUsd": 30467044,
+      "extraEarnPerYearUsd": 365604530,
+      "sameConcurrencyGpuBillSavedPerMonthUsd": 22223497,
+      "sameConcurrencyGpuBillSavedPerYearUsd": 266681961
+    },
+    {
+      "name": "65,536× H100 (multi-hall / campus-class)",
+      "gpus": 65536,
+      "baselineCapacityValuePerDayUsd": 10821304,
+      "extraEarnPerDayUsd": 4003883,
+      "extraEarnPerMonthUsd": 121868177,
+      "extraEarnPerYearUsd": 1462418119,
+      "sameConcurrencyGpuBillSavedPerMonthUsd": 88893987,
+      "sameConcurrencyGpuBillSavedPerYearUsd": 1066727846
     }
   ],
-  "sessionAspExamples_64xH100": [
-    {
-      "aspUsd": 0.05,
-      "extraSessionsPerDay": 2273,
-      "extraEarnPerDayUsd": 114
-    },
-    {
-      "aspUsd": 0.1,
-      "extraSessionsPerDay": 2273,
-      "extraEarnPerDayUsd": 227
-    },
-    {
-      "aspUsd": 0.25,
-      "extraSessionsPerDay": 2273,
-      "extraEarnPerDayUsd": 568
-    },
-    {
-      "aspUsd": 1,
-      "extraSessionsPerDay": 2273,
-      "extraEarnPerDayUsd": 2273
-    }
-  ],
-  "oneBreath": "On a 64× H100 fleet, ~37% more concurrent sessions is about ~$3,910 extra per day if that capacity is sold at ~$6.88/GPU-hr equivalent; a 512-GPU pod is about ~$31,280/day."
+  "notClaimed": [
+    "Actual AWS region GPU inventory",
+    "Private/spot effective sell prices",
+    "That demand always fills +37% slots"
+  ]
 }

@@ -54,17 +54,18 @@ Lead with storage-unit CapEx — not S3 retail:
 
 Full write-up: [`STORAGE_SAVINGS_DATACENTER.md`](./STORAGE_SAVINGS_DATACENTER.md).
 
-## Extra $ earned per day (from +37% sessions)
+## Extra $ earned per day (from +37% sessions) — datacenter scale
 
-Same fleet, demand fills the new slots:
+Same fleet, demand fills the new slots (H100 capacity proxy ~$6.88/GPU-hr):
 
 | Fleet | **Extra earn / day** |
 |---|---:|
-| 8× H100 | **~$489** |
-| 64× H100 | **~$3,910** |
-| 512× H100 pod | **~$31,280** |
+| 2,048× H100 (cluster) | **~$15,640** |
+| 8,192× H100 (AZ / superpod) | **~$62,559** |
+| 16,384× H100 (hall-class) | **~$125,119** |
+| 65,536× H100 (campus-class) | **~$500,475** |
 
-One breath: **~$3.9k extra per day** on 64× H100 (capacity proxy at ~$6.88/GPU-hr).  
+One breath: **~$125k extra per day** on a 16,384× H100 hall-class fleet; **~$500k/day** campus-class.
 
 Full note: [`EARNINGS_PER_DAY.md`](./EARNINGS_PER_DAY.md).
 
