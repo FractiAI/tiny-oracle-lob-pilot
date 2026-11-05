@@ -1,0 +1,159 @@
+{
+  "schema": "tiny-oracle-lob-pilot/v1",
+  "title": "Oracle-transparent Tiny LOB gateway pilot (simulation)",
+  "generatedAt": "2026-11-05T05:17:50.227Z",
+  "operator": "SynthOBS Autonomous Agent · Syntheverse Sandbox",
+  "notClaimed": [
+    "Oracle product integration",
+    "Measured Oracle RDBMS CapEx or tablespace savings",
+    "JDBC/OCI production proxy"
+  ],
+  "results": [
+    {
+      "workload": "identical_lobs_n1024",
+      "mode": "identical",
+      "n": 1024,
+      "sampleDocBytes": 575,
+      "conventionalBytes": 588800,
+      "tinyBytes": 28179,
+      "templateBytes": 575,
+      "reductionRatio": 0.9521416440217392,
+      "reductionPct": 95.21,
+      "exactRebuild": {
+        "pass": true,
+        "ok": 1024,
+        "failId": null
+      },
+      "exceptionRows": 0,
+      "deltaOrSeedRows": 1024,
+      "materialize": {
+        "conventionalP50Ms": 8.583,
+        "tinyP50Ms": 8.233,
+        "tinyVsConventional": 0.959
+      },
+      "honesty": [
+        "Serialized JSON LOB simulation only — not Oracle tablespace, ASM, redo, or indexes.",
+        "Reduction is template+delta vs full duplicated documents.",
+        "Exact rebuild required for pass; exceptions store full docs when shape breaks."
+      ]
+    },
+    {
+      "workload": "high_rhyme_claims_n1024",
+      "mode": "high_rhyme",
+      "n": 1024,
+      "sampleDocBytes": 660,
+      "conventionalBytes": 666831,
+      "tinyBytes": 229361,
+      "templateBytes": 660,
+      "reductionRatio": 0.6560432853301661,
+      "reductionPct": 65.6,
+      "exactRebuild": {
+        "pass": true,
+        "ok": 1024,
+        "failId": null
+      },
+      "exceptionRows": 0,
+      "deltaOrSeedRows": 1024,
+      "materialize": {
+        "conventionalP50Ms": 8.517,
+        "tinyP50Ms": 17.825,
+        "tinyVsConventional": 2.093
+      },
+      "honesty": [
+        "Serialized JSON LOB simulation only — not Oracle tablespace, ASM, redo, or indexes.",
+        "Reduction is template+delta vs full duplicated documents.",
+        "Exact rebuild required for pass; exceptions store full docs when shape breaks."
+      ]
+    },
+    {
+      "workload": "medium_rhyme_claims_n1024",
+      "mode": "medium_rhyme",
+      "n": 1024,
+      "sampleDocBytes": 638,
+      "conventionalBytes": 655864,
+      "tinyBytes": 283601,
+      "templateBytes": 638,
+      "reductionRatio": 0.567591756827635,
+      "reductionPct": 56.76,
+      "exactRebuild": {
+        "pass": true,
+        "ok": 1024,
+        "failId": null
+      },
+      "exceptionRows": 0,
+      "deltaOrSeedRows": 1024,
+      "materialize": {
+        "conventionalP50Ms": 8.578,
+        "tinyP50Ms": 19.892,
+        "tinyVsConventional": 2.319
+      },
+      "honesty": [
+        "Serialized JSON LOB simulation only — not Oracle tablespace, ASM, redo, or indexes.",
+        "Reduction is template+delta vs full duplicated documents.",
+        "Exact rebuild required for pass; exceptions store full docs when shape breaks."
+      ]
+    },
+    {
+      "workload": "low_rhyme_claims_n1024",
+      "mode": "low_rhyme",
+      "n": 1024,
+      "sampleDocBytes": 643,
+      "conventionalBytes": 667766,
+      "tinyBytes": 497279,
+      "templateBytes": 643,
+      "reductionRatio": 0.25530949464333313,
+      "reductionPct": 25.53,
+      "exactRebuild": {
+        "pass": true,
+        "ok": 1024,
+        "failId": null
+      },
+      "exceptionRows": 0,
+      "deltaOrSeedRows": 1024,
+      "materialize": {
+        "conventionalP50Ms": 8.806,
+        "tinyP50Ms": 25.065,
+        "tinyVsConventional": 2.846
+      },
+      "honesty": [
+        "Serialized JSON LOB simulation only — not Oracle tablespace, ASM, redo, or indexes.",
+        "Reduction is template+delta vs full duplicated documents.",
+        "Exact rebuild required for pass; exceptions store full docs when shape breaks."
+      ]
+    },
+    {
+      "workload": "high_rhyme_claims_n4096",
+      "mode": "high_rhyme",
+      "n": 4096,
+      "sampleDocBytes": 660,
+      "conventionalBytes": 2667324,
+      "tinyBytes": 919146,
+      "templateBytes": 660,
+      "reductionRatio": 0.6554051926200192,
+      "reductionPct": 65.54,
+      "exactRebuild": {
+        "pass": true,
+        "ok": 4096,
+        "failId": null
+      },
+      "exceptionRows": 0,
+      "deltaOrSeedRows": 4096,
+      "materialize": {
+        "conventionalP50Ms": 34.199,
+        "tinyP50Ms": 73.672,
+        "tinyVsConventional": 2.154
+      },
+      "honesty": [
+        "Serialized JSON LOB simulation only — not Oracle tablespace, ASM, redo, or indexes.",
+        "Reduction is template+delta vs full duplicated documents.",
+        "Exact rebuild required for pass; exceptions store full docs when shape breaks."
+      ]
+    }
+  ],
+  "headline": {
+    "bestReductionPct": 95.21,
+    "bestWorkload": "identical_lobs_n1024",
+    "worstReductionPct": 25.53,
+    "allExact": true
+  }
+}
