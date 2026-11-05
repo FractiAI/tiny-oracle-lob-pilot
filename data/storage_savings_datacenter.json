@@ -1,0 +1,61 @@
+{
+  "schema": "v1",
+  "yStoragePct": 66,
+  "eligibleShare": 0.7,
+  "burden": 1.4,
+  "media": {
+    "hdd": 25,
+    "nvme": 365,
+    "nvmeHot": 750
+  },
+  "rows": [
+    {
+      "name": "100 TB rack slice",
+      "poolTb": 100,
+      "freedTb": 46.2,
+      "hddBurdened": 1617,
+      "nvmeBurdened": 23608,
+      "nvmeHotBurdened": 48510,
+      "drives30Tb": 1.5,
+      "annualTiered": 832,
+      "annualFlash": 5544,
+      "dailyCarryingTiered": 2
+    },
+    {
+      "name": "1 PB (AWS hall / AZ slice)",
+      "poolTb": 1000,
+      "freedTb": 462,
+      "hddBurdened": 16170,
+      "nvmeBurdened": 236082,
+      "nvmeHotBurdened": 485100,
+      "drives30Tb": 15.4,
+      "annualTiered": 8316,
+      "annualFlash": 55440,
+      "dailyCarryingTiered": 23
+    },
+    {
+      "name": "10 PB (region-class storage)",
+      "poolTb": 10000,
+      "freedTb": 4620,
+      "hddBurdened": 161700,
+      "nvmeBurdened": 2360820,
+      "nvmeHotBurdened": 4851000,
+      "drives30Tb": 154,
+      "annualTiered": 83160,
+      "annualFlash": 554400,
+      "dailyCarryingTiered": 228
+    },
+    {
+      "name": "100 PB (multi-AZ / campus class)",
+      "poolTb": 100000,
+      "freedTb": 46200,
+      "hddBurdened": 1617000,
+      "nvmeBurdened": 23608200,
+      "nvmeHotBurdened": 48510000,
+      "drives30Tb": 1540,
+      "annualTiered": 831600,
+      "annualFlash": 5544000,
+      "dailyCarryingTiered": 2278
+    }
+  ]
+}

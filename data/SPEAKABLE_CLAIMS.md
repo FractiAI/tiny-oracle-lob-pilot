@@ -41,6 +41,19 @@ Reproduce sessions math from serving receipts; storage from `npm run pilot` in t
 
 
 
+
+
+## $ saved from ~66% storage utilization (AWS datacenter)
+
+Lead with storage-unit CapEx — not S3 retail:
+
+| Pool | Freed TB | HDD CapEx avoided | NVMe CapEx avoided |
+|---|---:|---:|---:|
+| 10 PB region-class | 4,620 | **~$162k** | **~$2.4M – $4.9M** |
+| 100 PB campus-class | 46,200 | **~$1.6M** | **~$24M – $49M** |
+
+Full write-up: [`STORAGE_SAVINGS_DATACENTER.md`](./STORAGE_SAVINGS_DATACENTER.md).
+
 ## Extra $ earned per day (from +37% sessions)
 
 Same fleet, demand fills the new slots:
@@ -55,8 +68,13 @@ One breath: **~$3.9k extra per day** on 64× H100 (capacity proxy at ~$6.88/GPU-
 
 Full note: [`EARNINGS_PER_DAY.md`](./EARNINGS_PER_DAY.md).
 
-## Dollars (illustrative)
 
-On an illustrative 64× H100 on-demand fleet, ~37% more sessions means roughly $86,811/mo less GPU spend for the same concurrency (or ~$118,930/mo of avoided expansion if you keep all 64). On 10 TiB of S3 with 70% high-rhyme LOBs, ~66% freed is about $106/mo storage (~$1,275/yr).
+## Dollars (illustrative · CapEx first)
+
+The earlier ~$106/mo figure was only a 10 TiB S3 Standard retail line — not datacenter economics and not storage-unit CapEx. Ignore it for facility-scale talk.
+
+On an illustrative 512× H100 pod, ~37% more sessions is about $694,484/mo less on-demand GPU spend for the same concurrency (~$8,333,811/yr), or ~$951,443/mo of avoided expansion if you keep all 512.
+
+At datacenter scale, ~66% freed on a 10 PB pool with 70% eligible rhyming LOBs is ~4,620 TB avoided. That is roughly $161,700 burdened nearline-HDD CapEx avoided, or $2,360,820–$4,851,000 if that capacity would have been enterprise NVMe (365–750/TB media × 1.4× burden). Annual carrying (tiered TCO band) on that freed slice is about $83,160/yr.
 
 Full tables: [`DOLLAR_CLAIMS.md`](./DOLLAR_CLAIMS.md) · `npm run dollars`.

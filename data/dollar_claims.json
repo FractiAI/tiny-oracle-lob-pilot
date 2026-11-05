@@ -1,32 +1,52 @@
 {
-  "schema": "tiny-oracle-lob-pilot/dollar-claims/v1",
-  "generatedAt": "2026-11-05T05:24:31.387Z",
+  "schema": "tiny-oracle-lob-pilot/dollar-claims/v2",
+  "generatedAt": "2026-11-05T05:30:21.678Z",
   "ratios": {
     "moreConcurrentSessionsPct": 37,
     "storageFreedPct": 66,
+    "eligibleShare": 0.7,
     "kvOnlySessionMultiplierQualified": 6.25
+  },
+  "assumptions": {
+    "mediaCapexUsdPerTb": {
+      "nearlineHdd": {
+        "usdPerTb": 25,
+        "note": "~$19–25/TB class nearline / Exos-style; use $25/TB"
+      },
+      "enterpriseNvme": {
+        "usdPerTb": 365,
+        "note": "Q1 2026-style ~$365/TB TLC band (volatile; later-2026 prints much higher)"
+      },
+      "enterpriseNvmeStressed": {
+        "usdPerTb": 750,
+        "note": "~$750/TB class when 30TB TLC prints near ~$22.6k/drive"
+      }
+    },
+    "burdenMultiplier": 1.4,
+    "annualTcoUsdPerTbYear": {
+      "tiered": {
+        "label": "Tiered (NVMe hot + HDD capacity)",
+        "usdPerTbYear": 18
+      },
+      "allFlash": {
+        "label": "All-flash NVMe TCO band",
+        "usdPerTbYear": 120
+      }
+    },
+    "demoted": "S3 Standard $/GiB-mo retail on <50 TiB is demoted — not the lead storage $ story"
   },
   "headline": {
     "speak": "About 37% more concurrent sessions and about 66% storage freed on rhyming LOBs.",
-    "dollarsSpeak_default": "On an illustrative 64× H100 on-demand fleet, ~37% more sessions means roughly $86,811/mo less GPU spend for the same concurrency (or ~$118,930/mo of avoided expansion if you keep all 64). On 10 TiB of S3 with 70% high-rhyme LOBs, ~66% freed is about $106/mo storage (~$1,275/yr).",
-    "rates": {
-      "h100GpuHrUsd": 6.88,
-      "a100_80GpuHrUsd": 3.43,
-      "s3GiBMonthUsd": 0.023,
-      "ebsGp3GiBMonthUsd": 0.08,
-      "hoursPerMonth": 730,
-      "asOfNote": "Illustrative public-list style rates (e.g. p5.48xlarge ~$55.04/hr → ~$6.88/GPU-hr). Not an AWS quote."
-    }
+    "correction": "The earlier ~$106/mo figure was only a 10 TiB S3 Standard retail line — not datacenter economics and not storage-unit CapEx. Ignore it for facility-scale talk.",
+    "dollarsSpeak_storageCapex": "At datacenter scale, ~66% freed on a 10 PB pool with 70% eligible rhyming LOBs is ~4,620 TB avoided. That is roughly $161,700 burdened nearline-HDD CapEx avoided, or $2,360,820–$4,851,000 if that capacity would have been enterprise NVMe (365–750/TB media × 1.4× burden). Annual carrying (tiered TCO band) on that freed slice is about $83,160/yr.",
+    "dollarsSpeak_sessions": "On an illustrative 512× H100 pod, ~37% more sessions is about $694,484/mo less on-demand GPU spend for the same concurrency (~$8,333,811/yr), or ~$951,443/mo of avoided expansion if you keep all 512."
   },
   "sessionDollars": [
     {
       "fleet": "8× H100 (one p5.48xlarge)",
-      "claim": "~37% more concurrent sessions (weight-counted)",
       "sameConcurrencyFewerGpus": {
-        "label": "8× H100 (one p5.48xlarge)",
         "fleetGpusBefore": 8,
         "fleetGpusAfter": 5.84,
-        "gpusFreed": 2.16,
         "monthlyBeforeUsd": 40179,
         "monthlyAfterUsd": 29328,
         "monthlySavedUsd": 10851,
@@ -34,14 +54,11 @@
       },
       "sameFleetMoreCapacity": {
         "monthlyCapacityValueUsd": 14866,
-        "annualCapacityValueUsd": 178396,
-        "note": "Value of extra concurrent capacity if you keep the same GPU count (avoided expansion)."
+        "annualCapacityValueUsd": 178396
       },
       "kvOnlyQualified_sameConcurrency": {
-        "label": "8× H100 (one p5.48xlarge)",
         "fleetGpusBefore": 8,
         "fleetGpusAfter": 1.28,
-        "gpusFreed": 6.72,
         "monthlyBeforeUsd": 40179,
         "monthlyAfterUsd": 6429,
         "monthlySavedUsd": 33751,
@@ -50,12 +67,9 @@
     },
     {
       "fleet": "64× H100 (eight p5.48xlarge)",
-      "claim": "~37% more concurrent sessions (weight-counted)",
       "sameConcurrencyFewerGpus": {
-        "label": "64× H100 (eight p5.48xlarge)",
         "fleetGpusBefore": 64,
         "fleetGpusAfter": 46.72,
-        "gpusFreed": 17.28,
         "monthlyBeforeUsd": 321434,
         "monthlyAfterUsd": 234623,
         "monthlySavedUsd": 86811,
@@ -63,14 +77,11 @@
       },
       "sameFleetMoreCapacity": {
         "monthlyCapacityValueUsd": 118930,
-        "annualCapacityValueUsd": 1427165,
-        "note": "Value of extra concurrent capacity if you keep the same GPU count (avoided expansion)."
+        "annualCapacityValueUsd": 1427165
       },
       "kvOnlyQualified_sameConcurrency": {
-        "label": "64× H100 (eight p5.48xlarge)",
         "fleetGpusBefore": 64,
         "fleetGpusAfter": 10.24,
-        "gpusFreed": 53.76,
         "monthlyBeforeUsd": 321434,
         "monthlyAfterUsd": 51429,
         "monthlySavedUsd": 270004,
@@ -78,13 +89,33 @@
       }
     },
     {
-      "fleet": "8× A100 80GB-class",
-      "claim": "~37% more concurrent sessions (weight-counted)",
+      "fleet": "512× H100 (datacenter pod-scale)",
       "sameConcurrencyFewerGpus": {
-        "label": "8× A100 80GB-class",
+        "fleetGpusBefore": 512,
+        "fleetGpusAfter": 373.72,
+        "monthlyBeforeUsd": 2571469,
+        "monthlyAfterUsd": 1876985,
+        "monthlySavedUsd": 694484,
+        "annualSavedUsd": 8333811
+      },
+      "sameFleetMoreCapacity": {
+        "monthlyCapacityValueUsd": 951443,
+        "annualCapacityValueUsd": 11417321
+      },
+      "kvOnlyQualified_sameConcurrency": {
+        "fleetGpusBefore": 512,
+        "fleetGpusAfter": 81.92,
+        "monthlyBeforeUsd": 2571469,
+        "monthlyAfterUsd": 411435,
+        "monthlySavedUsd": 2160034,
+        "annualSavedUsd": 25920406
+      }
+    },
+    {
+      "fleet": "8× A100 80GB-class",
+      "sameConcurrencyFewerGpus": {
         "fleetGpusBefore": 8,
         "fleetGpusAfter": 5.84,
-        "gpusFreed": 2.16,
         "monthlyBeforeUsd": 20031,
         "monthlyAfterUsd": 14621,
         "monthlySavedUsd": 5410,
@@ -92,14 +123,11 @@
       },
       "sameFleetMoreCapacity": {
         "monthlyCapacityValueUsd": 7412,
-        "annualCapacityValueUsd": 88939,
-        "note": "Value of extra concurrent capacity if you keep the same GPU count (avoided expansion)."
+        "annualCapacityValueUsd": 88939
       },
       "kvOnlyQualified_sameConcurrency": {
-        "label": "8× A100 80GB-class",
         "fleetGpusBefore": 8,
         "fleetGpusAfter": 1.28,
-        "gpusFreed": 6.72,
         "monthlyBeforeUsd": 20031,
         "monthlyAfterUsd": 3205,
         "monthlySavedUsd": 16826,
@@ -107,43 +135,311 @@
       }
     }
   ],
-  "storageDollars": [
+  "storageCapexRows": [
     {
-      "label": "500 GiB S3 · 70% high-rhyme LOBs · 66% cut",
-      "poolGiB": 500,
-      "eligibleSharePct": 70,
-      "freedGiB": 231,
-      "monthlySavedUsd": 5.31,
-      "annualSavedUsd": 63.76
+      "pool": "100 TB rack slice",
+      "media": "Nearline HDD media",
+      "poolTb": 100,
+      "eligibleTb": 70,
+      "freedTb": 46.2,
+      "mediaUsdPerTb": 25,
+      "mediaCapexAvoidedUsd": 1155,
+      "burdenedCapexAvoidedUsd": 1617,
+      "drivesAvoided_if30Tb": 1.5,
+      "annualTier": {
+        "tiered": {
+          "freedTb": 46.2,
+          "usdPerTbYear": 18,
+          "annualCarryingAvoidedUsd": 832,
+          "monthlyCarryingAvoidedUsd": 69
+        },
+        "allFlash": {
+          "freedTb": 46.2,
+          "usdPerTbYear": 120,
+          "annualCarryingAvoidedUsd": 5544,
+          "monthlyCarryingAvoidedUsd": 462
+        }
+      }
     },
     {
-      "label": "10 TiB S3 · 70% high-rhyme LOBs · 66% cut",
-      "poolGiB": 10000,
-      "eligibleSharePct": 70,
-      "freedGiB": 4620,
-      "monthlySavedUsd": 106.26,
-      "annualSavedUsd": 1275.12
+      "pool": "100 TB rack slice",
+      "media": "Enterprise NVMe media",
+      "poolTb": 100,
+      "eligibleTb": 70,
+      "freedTb": 46.2,
+      "mediaUsdPerTb": 365,
+      "mediaCapexAvoidedUsd": 16863,
+      "burdenedCapexAvoidedUsd": 23608,
+      "drivesAvoided_if30Tb": 1.5,
+      "annualTier": {
+        "tiered": {
+          "freedTb": 46.2,
+          "usdPerTbYear": 18,
+          "annualCarryingAvoidedUsd": 832,
+          "monthlyCarryingAvoidedUsd": 69
+        },
+        "allFlash": {
+          "freedTb": 46.2,
+          "usdPerTbYear": 120,
+          "annualCarryingAvoidedUsd": 5544,
+          "monthlyCarryingAvoidedUsd": 462
+        }
+      }
     },
     {
-      "label": "50 TiB S3 · 70% high-rhyme LOBs · 66% cut",
-      "poolGiB": 50000,
-      "eligibleSharePct": 70,
-      "freedGiB": 23100,
-      "monthlySavedUsd": 531.3,
-      "annualSavedUsd": 6375.6
+      "pool": "100 TB rack slice",
+      "media": "Enterprise NVMe media (stressed 2026 band)",
+      "poolTb": 100,
+      "eligibleTb": 70,
+      "freedTb": 46.2,
+      "mediaUsdPerTb": 750,
+      "mediaCapexAvoidedUsd": 34650,
+      "burdenedCapexAvoidedUsd": 48510,
+      "drivesAvoided_if30Tb": 1.5,
+      "annualTier": {
+        "tiered": {
+          "freedTb": 46.2,
+          "usdPerTbYear": 18,
+          "annualCarryingAvoidedUsd": 832,
+          "monthlyCarryingAvoidedUsd": 69
+        },
+        "allFlash": {
+          "freedTb": 46.2,
+          "usdPerTbYear": 120,
+          "annualCarryingAvoidedUsd": 5544,
+          "monthlyCarryingAvoidedUsd": 462
+        }
+      }
     },
     {
-      "label": "10 TiB EBS gp3-class · 70% eligible · 66% cut",
-      "poolGiB": 10000,
-      "eligibleSharePct": 70,
-      "freedGiB": 4620,
-      "monthlySavedUsd": 369.6,
-      "annualSavedUsd": 4435.2
+      "pool": "1 PB hall",
+      "media": "Nearline HDD media",
+      "poolTb": 1000,
+      "eligibleTb": 700,
+      "freedTb": 462,
+      "mediaUsdPerTb": 25,
+      "mediaCapexAvoidedUsd": 11550,
+      "burdenedCapexAvoidedUsd": 16170,
+      "drivesAvoided_if30Tb": 15.4,
+      "annualTier": {
+        "tiered": {
+          "freedTb": 462,
+          "usdPerTbYear": 18,
+          "annualCarryingAvoidedUsd": 8316,
+          "monthlyCarryingAvoidedUsd": 693
+        },
+        "allFlash": {
+          "freedTb": 462,
+          "usdPerTbYear": 120,
+          "annualCarryingAvoidedUsd": 55440,
+          "monthlyCarryingAvoidedUsd": 4620
+        }
+      }
+    },
+    {
+      "pool": "1 PB hall",
+      "media": "Enterprise NVMe media",
+      "poolTb": 1000,
+      "eligibleTb": 700,
+      "freedTb": 462,
+      "mediaUsdPerTb": 365,
+      "mediaCapexAvoidedUsd": 168630,
+      "burdenedCapexAvoidedUsd": 236082,
+      "drivesAvoided_if30Tb": 15.4,
+      "annualTier": {
+        "tiered": {
+          "freedTb": 462,
+          "usdPerTbYear": 18,
+          "annualCarryingAvoidedUsd": 8316,
+          "monthlyCarryingAvoidedUsd": 693
+        },
+        "allFlash": {
+          "freedTb": 462,
+          "usdPerTbYear": 120,
+          "annualCarryingAvoidedUsd": 55440,
+          "monthlyCarryingAvoidedUsd": 4620
+        }
+      }
+    },
+    {
+      "pool": "1 PB hall",
+      "media": "Enterprise NVMe media (stressed 2026 band)",
+      "poolTb": 1000,
+      "eligibleTb": 700,
+      "freedTb": 462,
+      "mediaUsdPerTb": 750,
+      "mediaCapexAvoidedUsd": 346500,
+      "burdenedCapexAvoidedUsd": 485100,
+      "drivesAvoided_if30Tb": 15.4,
+      "annualTier": {
+        "tiered": {
+          "freedTb": 462,
+          "usdPerTbYear": 18,
+          "annualCarryingAvoidedUsd": 8316,
+          "monthlyCarryingAvoidedUsd": 693
+        },
+        "allFlash": {
+          "freedTb": 462,
+          "usdPerTbYear": 120,
+          "annualCarryingAvoidedUsd": 55440,
+          "monthlyCarryingAvoidedUsd": 4620
+        }
+      }
+    },
+    {
+      "pool": "10 PB region slice",
+      "media": "Nearline HDD media",
+      "poolTb": 10000,
+      "eligibleTb": 7000,
+      "freedTb": 4620,
+      "mediaUsdPerTb": 25,
+      "mediaCapexAvoidedUsd": 115500,
+      "burdenedCapexAvoidedUsd": 161700,
+      "drivesAvoided_if30Tb": 154,
+      "annualTier": {
+        "tiered": {
+          "freedTb": 4620,
+          "usdPerTbYear": 18,
+          "annualCarryingAvoidedUsd": 83160,
+          "monthlyCarryingAvoidedUsd": 6930
+        },
+        "allFlash": {
+          "freedTb": 4620,
+          "usdPerTbYear": 120,
+          "annualCarryingAvoidedUsd": 554400,
+          "monthlyCarryingAvoidedUsd": 46200
+        }
+      }
+    },
+    {
+      "pool": "10 PB region slice",
+      "media": "Enterprise NVMe media",
+      "poolTb": 10000,
+      "eligibleTb": 7000,
+      "freedTb": 4620,
+      "mediaUsdPerTb": 365,
+      "mediaCapexAvoidedUsd": 1686300,
+      "burdenedCapexAvoidedUsd": 2360820,
+      "drivesAvoided_if30Tb": 154,
+      "annualTier": {
+        "tiered": {
+          "freedTb": 4620,
+          "usdPerTbYear": 18,
+          "annualCarryingAvoidedUsd": 83160,
+          "monthlyCarryingAvoidedUsd": 6930
+        },
+        "allFlash": {
+          "freedTb": 4620,
+          "usdPerTbYear": 120,
+          "annualCarryingAvoidedUsd": 554400,
+          "monthlyCarryingAvoidedUsd": 46200
+        }
+      }
+    },
+    {
+      "pool": "10 PB region slice",
+      "media": "Enterprise NVMe media (stressed 2026 band)",
+      "poolTb": 10000,
+      "eligibleTb": 7000,
+      "freedTb": 4620,
+      "mediaUsdPerTb": 750,
+      "mediaCapexAvoidedUsd": 3465000,
+      "burdenedCapexAvoidedUsd": 4851000,
+      "drivesAvoided_if30Tb": 154,
+      "annualTier": {
+        "tiered": {
+          "freedTb": 4620,
+          "usdPerTbYear": 18,
+          "annualCarryingAvoidedUsd": 83160,
+          "monthlyCarryingAvoidedUsd": 6930
+        },
+        "allFlash": {
+          "freedTb": 4620,
+          "usdPerTbYear": 120,
+          "annualCarryingAvoidedUsd": 554400,
+          "monthlyCarryingAvoidedUsd": 46200
+        }
+      }
+    },
+    {
+      "pool": "100 PB multi-AZ class",
+      "media": "Nearline HDD media",
+      "poolTb": 100000,
+      "eligibleTb": 70000,
+      "freedTb": 46200,
+      "mediaUsdPerTb": 25,
+      "mediaCapexAvoidedUsd": 1155000,
+      "burdenedCapexAvoidedUsd": 1617000,
+      "drivesAvoided_if30Tb": 1540,
+      "annualTier": {
+        "tiered": {
+          "freedTb": 46200,
+          "usdPerTbYear": 18,
+          "annualCarryingAvoidedUsd": 831600,
+          "monthlyCarryingAvoidedUsd": 69300
+        },
+        "allFlash": {
+          "freedTb": 46200,
+          "usdPerTbYear": 120,
+          "annualCarryingAvoidedUsd": 5544000,
+          "monthlyCarryingAvoidedUsd": 462000
+        }
+      }
+    },
+    {
+      "pool": "100 PB multi-AZ class",
+      "media": "Enterprise NVMe media",
+      "poolTb": 100000,
+      "eligibleTb": 70000,
+      "freedTb": 46200,
+      "mediaUsdPerTb": 365,
+      "mediaCapexAvoidedUsd": 16863000,
+      "burdenedCapexAvoidedUsd": 23608200,
+      "drivesAvoided_if30Tb": 1540,
+      "annualTier": {
+        "tiered": {
+          "freedTb": 46200,
+          "usdPerTbYear": 18,
+          "annualCarryingAvoidedUsd": 831600,
+          "monthlyCarryingAvoidedUsd": 69300
+        },
+        "allFlash": {
+          "freedTb": 46200,
+          "usdPerTbYear": 120,
+          "annualCarryingAvoidedUsd": 5544000,
+          "monthlyCarryingAvoidedUsd": 462000
+        }
+      }
+    },
+    {
+      "pool": "100 PB multi-AZ class",
+      "media": "Enterprise NVMe media (stressed 2026 band)",
+      "poolTb": 100000,
+      "eligibleTb": 70000,
+      "freedTb": 46200,
+      "mediaUsdPerTb": 750,
+      "mediaCapexAvoidedUsd": 34650000,
+      "burdenedCapexAvoidedUsd": 48510000,
+      "drivesAvoided_if30Tb": 1540,
+      "annualTier": {
+        "tiered": {
+          "freedTb": 46200,
+          "usdPerTbYear": 18,
+          "annualCarryingAvoidedUsd": 831600,
+          "monthlyCarryingAvoidedUsd": 69300
+        },
+        "allFlash": {
+          "freedTb": 46200,
+          "usdPerTbYear": 120,
+          "annualCarryingAvoidedUsd": 5544000,
+          "monthlyCarryingAvoidedUsd": 462000
+        }
+      }
     }
   ],
   "notClaimed": [
-    "Customer AWS invoice guarantee",
-    "Reserved/Spot/Savings Plan effective rates",
-    "That rebuild CPU savings offset GPU dollars"
+    "AWS private pricing or datacenter BOM quote",
+    "That every PB in a region is 70% rhyming LOBs",
+    "Flash spot prices (volatile through 2026)"
   ]
 }

@@ -1,56 +1,78 @@
-# Extra earnings per day (+37% sessions)
+# Speakable claims → dollars
+
+## Pair
+
+- **~37% more concurrent sessions** → extra earn / day (same fleet): see [`EARNINGS_PER_DAY.md`](./EARNINGS_PER_DAY.md) — e.g. **~$3,910/day** on 64× H100.
+- **~66% storage freed** → datacenter **storage-unit CapEx avoided**: see [`STORAGE_SAVINGS_DATACENTER.md`](./STORAGE_SAVINGS_DATACENTER.md).
+
+## $ saved · 66% storage utilization (AWS datacenter scale)
+
+**Do not use the old ~$106/mo S3 retail line for datacenter talk.**
+
+On a **10 PB** region-class pool (70% eligible rhyming LOBs):
+
+| | |
+|---|---|
+| Freed | **4,620 TB** |
+| Nearline HDD CapEx avoided (burdened) | **~$162k** |
+| Enterprise NVMe CapEx avoided (burdened) | **~$2.4M – $4.9M** |
+| ≈ 30 TB drives avoided | **~154** |
+| Tiered carrying avoided | **~$83k/yr** (~$228/day) |
+
+On a **100 PB** multi-AZ / campus class pool: **~$1.6M** HDD-class or **~$24M – $49M** NVMe-class CapEx avoided.
 
 On a 64× H100 fleet, ~37% more concurrent sessions is about ~$3,910 extra per day if that capacity is sold at ~$6.88/GPU-hr equivalent; a 512-GPU pod is about ~$31,280/day.
 
-See [`EARNINGS_PER_DAY.md`](./EARNINGS_PER_DAY.md).
-
 ---
 
-# Speakable claims → dollars (illustrative AWS)
+## Correction
+
+The earlier ~$106/mo figure was only a 10 TiB S3 Standard retail line — not datacenter economics and not storage-unit CapEx. Ignore it for facility-scale talk.
 
 ## One breath
 
 About 37% more concurrent sessions and about 66% storage freed on rhyming LOBs.
 
-On an illustrative 64× H100 on-demand fleet, ~37% more sessions means roughly $86,811/mo less GPU spend for the same concurrency (or ~$118,930/mo of avoided expansion if you keep all 64). On 10 TiB of S3 with 70% high-rhyme LOBs, ~66% freed is about $106/mo storage (~$1,275/yr).
+On an illustrative 512× H100 pod, ~37% more sessions is about $694,484/mo less on-demand GPU spend for the same concurrency (~$8,333,811/yr), or ~$951,443/mo of avoided expansion if you keep all 512.
 
-## X · session capacity → GPU $
+At datacenter scale, ~66% freed on a 10 PB pool with 70% eligible rhyming LOBs is ~4,620 TB avoided. That is roughly $161,700 burdened nearline-HDD CapEx avoided, or $2,360,820–$4,851,000 if that capacity would have been enterprise NVMe (365–750/TB media × 1.4× burden). Annual carrying (tiered TCO band) on that freed slice is about $83,160/yr.
 
-Identity: **~37% more sessions** ⇒ same concurrency needs only **1/1.37 ≈ 73%** of the GPUs ⇒ **~27% of that fleet’s GPU bill avoided**.
+## Y · storage freed → **storage-unit CapEx** (lead metric)
 
-| Fleet | Monthly before | Monthly after (same concurrency) | **Monthly saved** | Annual saved | Same fleet · capacity value / mo |
+Freed TB = pool × **70% eligible** × **66% cut**. Burdened CapEx = freed TB × media $/TB × **1.4×** (chassis/controllers/spares sketch).
+
+| Pool | Freed TB | Nearline HDD CapEx avoided* | NVMe CapEx avoided* | NVMe stressed CapEx* | Tiered TCO avoided / yr |
 |---|---:|---:|---:|---:|---:|
-| 8× H100 (one p5.48xlarge) | $40,179 | $29,328 | **$10,851** | $130,216 | $14,866 |
-| 64× H100 (eight p5.48xlarge) | $321,434 | $234,623 | **$86,811** | $1,041,726 | $118,930 |
-| 8× A100 80GB-class | $20,031 | $14,621 | **$5,410** | $64,919 | $7,412 |
+| 100 TB rack slice | 46.2 | **$1,617** | $23,608 | $48,510 | $832 |
+| 1 PB hall | 462 | **$16,170** | $236,082 | $485,100 | $8,316 |
+| 10 PB region slice | 4,620 | **$161,700** | $2,360,820 | $4,851,000 | $83,160 |
+| 100 PB multi-AZ class | 46,200 | **$1,617,000** | $23,608,200 | $48,510,000 | $831,600 |
 
-Qualified KV-only (~6.25× sessions / ~84% KV cut, weights excluded):
+\*Burdened. Media-only at $25/TB HDD · $365/TB NVMe · $750/TB stressed NVMe.
 
-| Fleet | Monthly saved if concurrency KV-bound only |
+| Pool | ≈ 30 TB drives avoided (media count) |
 |---|---:|
-| 8× H100 (one p5.48xlarge) | $33,751 |
-| 64× H100 (eight p5.48xlarge) | $270,004 |
-| 8× A100 80GB-class | $16,826 |
+| 100 TB rack slice | ~1.5 |
+| 1 PB hall | ~15.4 |
+| 10 PB region slice | ~154 |
+| 100 PB multi-AZ class | ~1540 |
 
-## Y · storage freed → storage $
+### Why S3 $/mo looked “way off”
 
-| Scenario | Freed | Monthly | Annual |
+S3 Standard ~$0.023/GiB-mo on 10 TiB is a **retail object bill**, not the cost of buying and powering storage units in a hall. Hyperscalers care about **drives, enclosures, racks, power, and deferred CapEx**. Lead with CapEx-avoided / drives-avoided; keep S3 retail as a footnote for customer object bills only.
+
+## X · sessions → GPU $
+
+| Fleet | Monthly saved (same concurrency) | Annual | Capacity value if keep fleet / mo |
 |---|---:|---:|---:|
-| 500 GiB S3 · 70% high-rhyme LOBs · 66% cut | 231 GiB | **$5** | $64 |
-| 10 TiB S3 · 70% high-rhyme LOBs · 66% cut | 4620 GiB | **$106** | $1,275 |
-| 50 TiB S3 · 70% high-rhyme LOBs · 66% cut | 23100 GiB | **$531** | $6,376 |
-| 10 TiB EBS gp3-class · 70% eligible · 66% cut | 4620 GiB | **$370** | $4,435 |
-
-## Rates used (illustration only)
-
-- H100: **$6.88/GPU-hr** (p5.48xlarge ~$55.04/hr ÷ 8)
-- A100 80GB-class: **$3.43/GPU-hr**
-- S3 Standard: **$0.023/GiB-mo** · EBS gp3-class: **$0.08/GiB-mo**
-- Hours/month: **730**
+| 8× H100 (one p5.48xlarge) | **$10,851** | $130,216 | $14,866 |
+| 64× H100 (eight p5.48xlarge) | **$86,811** | $1,041,726 | $118,930 |
+| 512× H100 (datacenter pod-scale) | **$694,484** | $8,333,811 | $951,443 |
+| 8× A100 80GB-class | **$5,410** | $64,919 | $7,412 |
 
 ## Honesty
 
-- Not an AWS invoice, Private Pricing, or Savings Plan.
-- Session $ assumes concurrency was memory-bound in the way the X% claim states.
-- Storage $ applies only to the eligible rhyming LOB share.
-- Rebuild CPU often rises in the LOB pilot — not subtracted here.
+- Not an AWS or Oracle procurement quote; flash $/TB moved violently in 2026 reporting.
+- Assumes 70% of the named pool is high-rhyme LOB/JSON — measure your corpus before using the $.
+- CapEx avoided only lands if you **buy fewer units** or defer a refresh — not if the hall stays full of empty drives.
+- Rebuild CPU cost not netted against these dollars.

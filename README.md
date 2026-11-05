@@ -33,7 +33,7 @@ Receipts:
 
 Recommended: **~37% more concurrent sessions** + **~66% storage freed** (labeled).
 
-Dollars: [`data/DOLLAR_CLAIMS.md`](./data/DOLLAR_CLAIMS.md) — `npm run dollars`.
+Dollars: [`data/DOLLAR_CLAIMS.md` · [`data/STORAGE_SAVINGS_DATACENTER.md`](./data/STORAGE_SAVINGS_DATACENTER.md`](./data/DOLLAR_CLAIMS.md` · [`data/STORAGE_SAVINGS_DATACENTER.md`](./data/STORAGE_SAVINGS_DATACENTER.md) — `npm run dollars`.
 
 Claims ledger: [`data/SPEAKABLE_CLAIMS.md`](./data/SPEAKABLE_CLAIMS.md).
 
