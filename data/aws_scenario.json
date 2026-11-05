@@ -1,0 +1,62 @@
+{
+  "schema": "tiny-oracle-lob-pilot/aws-scenario/v1",
+  "generatedAt": "2026-11-05T05:21:04.145Z",
+  "basis": "Pilot ratios applied to illustrative S3 capacities. Not an AWS measurement.",
+  "pricingNote": "S3 Standard ~$0.023/GiB-month illustrative list assumption.",
+  "pilotHeadline": {
+    "bestReductionPct": 95.21,
+    "bestWorkload": "identical_lobs_n1024",
+    "worstReductionPct": 25.53,
+    "allExact": true
+  },
+  "scenarios": [
+    {
+      "scenario": "Claims archive on S3 (high rhyme)",
+      "inputStorageGiB": 500,
+      "eligibleSharePct": 70,
+      "pilotReductionPct": 65.6,
+      "freedGiB": 229.6,
+      "remainingGiB": 270.4,
+      "approxS3StandardMonthlyUsdSaved": 5.28,
+      "readMaterializeFactorVsFullCopy": 2.097,
+      "cpuCyclesOnRead": "more_cycles_per_read"
+    },
+    {
+      "scenario": "Mixed LOB lake (medium rhyme)",
+      "inputStorageGiB": 500,
+      "eligibleSharePct": 50,
+      "pilotReductionPct": 56.76,
+      "freedGiB": 141.9,
+      "remainingGiB": 358.1,
+      "approxS3StandardMonthlyUsdSaved": 3.26,
+      "readMaterializeFactorVsFullCopy": 2.341,
+      "cpuCyclesOnRead": "more_cycles_per_read"
+    },
+    {
+      "scenario": "Mostly unique documents (low rhyme)",
+      "inputStorageGiB": 500,
+      "eligibleSharePct": 80,
+      "pilotReductionPct": 25.53,
+      "freedGiB": 102.1,
+      "remainingGiB": 397.9,
+      "approxS3StandardMonthlyUsdSaved": 2.35,
+      "readMaterializeFactorVsFullCopy": 2.778,
+      "cpuCyclesOnRead": "more_cycles_per_read"
+    },
+    {
+      "scenario": "Identical snapshot copies",
+      "inputStorageGiB": 200,
+      "eligibleSharePct": 100,
+      "pilotReductionPct": 95.21,
+      "freedGiB": 190.4,
+      "remainingGiB": 9.6,
+      "approxS3StandardMonthlyUsdSaved": 4.38,
+      "readMaterializeFactorVsFullCopy": 0.972,
+      "cpuCyclesOnRead": "improved_or_parity"
+    }
+  ],
+  "verdict": {
+    "freedSpace": "Yes on eligible repetitive LOB bytes = pool × eligibleShare × pilotReduction.",
+    "performanceCpu": "Near-duplicate rebuild used ~2–3× materialize CPU vs full copy. Storage improves; read CPU generally does not."
+  }
+}

@@ -29,6 +29,15 @@ Receipts:
 - `data/pilot_report.json` — machine receipt  
 - `data/FINDINGS.md` — plain-speak findings  
 
+## AWS scenario (extrapolation)
+
+```bash
+npm run pilot
+npm run scenario:aws
+```
+
+See `data/AWS_SCENARIO.md` — illustrative freed S3 space from pilot ratios; read CPU generally rises on rebuild.
+
 ## Related
 
 - Product kit: [tiny-footprint-workstation](https://github.com/FractiAI/tiny-footprint-workstation)  

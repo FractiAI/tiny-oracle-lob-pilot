@@ -3,10 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Pilot: transparent Tiny Gateway template+delta path for Oracle-like LOB/JSON payloads (simulation — not an Oracle product).",
+  "description": "Pilot: transparent Tiny Gateway template+delta path for Oracle-like LOB/JSON payloads (simulation \u2014 not an Oracle product).",
   "scripts": {
     "pilot": "node scripts/run_pilot.mjs",
-    "test": "node --test tests/*.test.mjs"
+    "test": "node --test tests/*.test.mjs",
+    "scenario:aws": "node scripts/aws_scenario.mjs"
   },
   "engines": {
     "node": ">=18"
