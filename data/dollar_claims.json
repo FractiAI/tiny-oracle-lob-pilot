@@ -1,0 +1,149 @@
+{
+  "schema": "tiny-oracle-lob-pilot/dollar-claims/v1",
+  "generatedAt": "2026-11-05T05:24:31.387Z",
+  "ratios": {
+    "moreConcurrentSessionsPct": 37,
+    "storageFreedPct": 66,
+    "kvOnlySessionMultiplierQualified": 6.25
+  },
+  "headline": {
+    "speak": "About 37% more concurrent sessions and about 66% storage freed on rhyming LOBs.",
+    "dollarsSpeak_default": "On an illustrative 64× H100 on-demand fleet, ~37% more sessions means roughly $86,811/mo less GPU spend for the same concurrency (or ~$118,930/mo of avoided expansion if you keep all 64). On 10 TiB of S3 with 70% high-rhyme LOBs, ~66% freed is about $106/mo storage (~$1,275/yr).",
+    "rates": {
+      "h100GpuHrUsd": 6.88,
+      "a100_80GpuHrUsd": 3.43,
+      "s3GiBMonthUsd": 0.023,
+      "ebsGp3GiBMonthUsd": 0.08,
+      "hoursPerMonth": 730,
+      "asOfNote": "Illustrative public-list style rates (e.g. p5.48xlarge ~$55.04/hr → ~$6.88/GPU-hr). Not an AWS quote."
+    }
+  },
+  "sessionDollars": [
+    {
+      "fleet": "8× H100 (one p5.48xlarge)",
+      "claim": "~37% more concurrent sessions (weight-counted)",
+      "sameConcurrencyFewerGpus": {
+        "label": "8× H100 (one p5.48xlarge)",
+        "fleetGpusBefore": 8,
+        "fleetGpusAfter": 5.84,
+        "gpusFreed": 2.16,
+        "monthlyBeforeUsd": 40179,
+        "monthlyAfterUsd": 29328,
+        "monthlySavedUsd": 10851,
+        "annualSavedUsd": 130216
+      },
+      "sameFleetMoreCapacity": {
+        "monthlyCapacityValueUsd": 14866,
+        "annualCapacityValueUsd": 178396,
+        "note": "Value of extra concurrent capacity if you keep the same GPU count (avoided expansion)."
+      },
+      "kvOnlyQualified_sameConcurrency": {
+        "label": "8× H100 (one p5.48xlarge)",
+        "fleetGpusBefore": 8,
+        "fleetGpusAfter": 1.28,
+        "gpusFreed": 6.72,
+        "monthlyBeforeUsd": 40179,
+        "monthlyAfterUsd": 6429,
+        "monthlySavedUsd": 33751,
+        "annualSavedUsd": 405006
+      }
+    },
+    {
+      "fleet": "64× H100 (eight p5.48xlarge)",
+      "claim": "~37% more concurrent sessions (weight-counted)",
+      "sameConcurrencyFewerGpus": {
+        "label": "64× H100 (eight p5.48xlarge)",
+        "fleetGpusBefore": 64,
+        "fleetGpusAfter": 46.72,
+        "gpusFreed": 17.28,
+        "monthlyBeforeUsd": 321434,
+        "monthlyAfterUsd": 234623,
+        "monthlySavedUsd": 86811,
+        "annualSavedUsd": 1041726
+      },
+      "sameFleetMoreCapacity": {
+        "monthlyCapacityValueUsd": 118930,
+        "annualCapacityValueUsd": 1427165,
+        "note": "Value of extra concurrent capacity if you keep the same GPU count (avoided expansion)."
+      },
+      "kvOnlyQualified_sameConcurrency": {
+        "label": "64× H100 (eight p5.48xlarge)",
+        "fleetGpusBefore": 64,
+        "fleetGpusAfter": 10.24,
+        "gpusFreed": 53.76,
+        "monthlyBeforeUsd": 321434,
+        "monthlyAfterUsd": 51429,
+        "monthlySavedUsd": 270004,
+        "annualSavedUsd": 3240051
+      }
+    },
+    {
+      "fleet": "8× A100 80GB-class",
+      "claim": "~37% more concurrent sessions (weight-counted)",
+      "sameConcurrencyFewerGpus": {
+        "label": "8× A100 80GB-class",
+        "fleetGpusBefore": 8,
+        "fleetGpusAfter": 5.84,
+        "gpusFreed": 2.16,
+        "monthlyBeforeUsd": 20031,
+        "monthlyAfterUsd": 14621,
+        "monthlySavedUsd": 5410,
+        "annualSavedUsd": 64919
+      },
+      "sameFleetMoreCapacity": {
+        "monthlyCapacityValueUsd": 7412,
+        "annualCapacityValueUsd": 88939,
+        "note": "Value of extra concurrent capacity if you keep the same GPU count (avoided expansion)."
+      },
+      "kvOnlyQualified_sameConcurrency": {
+        "label": "8× A100 80GB-class",
+        "fleetGpusBefore": 8,
+        "fleetGpusAfter": 1.28,
+        "gpusFreed": 6.72,
+        "monthlyBeforeUsd": 20031,
+        "monthlyAfterUsd": 3205,
+        "monthlySavedUsd": 16826,
+        "annualSavedUsd": 201914
+      }
+    }
+  ],
+  "storageDollars": [
+    {
+      "label": "500 GiB S3 · 70% high-rhyme LOBs · 66% cut",
+      "poolGiB": 500,
+      "eligibleSharePct": 70,
+      "freedGiB": 231,
+      "monthlySavedUsd": 5.31,
+      "annualSavedUsd": 63.76
+    },
+    {
+      "label": "10 TiB S3 · 70% high-rhyme LOBs · 66% cut",
+      "poolGiB": 10000,
+      "eligibleSharePct": 70,
+      "freedGiB": 4620,
+      "monthlySavedUsd": 106.26,
+      "annualSavedUsd": 1275.12
+    },
+    {
+      "label": "50 TiB S3 · 70% high-rhyme LOBs · 66% cut",
+      "poolGiB": 50000,
+      "eligibleSharePct": 70,
+      "freedGiB": 23100,
+      "monthlySavedUsd": 531.3,
+      "annualSavedUsd": 6375.6
+    },
+    {
+      "label": "10 TiB EBS gp3-class · 70% eligible · 66% cut",
+      "poolGiB": 10000,
+      "eligibleSharePct": 70,
+      "freedGiB": 4620,
+      "monthlySavedUsd": 369.6,
+      "annualSavedUsd": 4435.2
+    }
+  ],
+  "notClaimed": [
+    "Customer AWS invoice guarantee",
+    "Reserved/Spot/Savings Plan effective rates",
+    "That rebuild CPU savings offset GPU dollars"
+  ]
+}

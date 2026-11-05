@@ -38,3 +38,9 @@ if concurrency is limited by memory pile \(M\), and Tiny cuts that pile by fract
 “Up to about **6× concurrent sessions** on the **KV-resident** pile alone (~84% KV cut), when model weights are not what runs out first.”
 
 Reproduce sessions math from serving receipts; storage from `npm run pilot` in this repo.
+
+## Dollars (illustrative)
+
+On an illustrative 64× H100 on-demand fleet, ~37% more sessions means roughly $86,811/mo less GPU spend for the same concurrency (or ~$118,930/mo of avoided expansion if you keep all 64). On 10 TiB of S3 with 70% high-rhyme LOBs, ~66% freed is about $106/mo storage (~$1,275/yr).
+
+Full tables: [`DOLLAR_CLAIMS.md`](./DOLLAR_CLAIMS.md) · `npm run dollars`.

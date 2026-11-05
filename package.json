@@ -7,7 +7,8 @@
   "scripts": {
     "pilot": "node scripts/run_pilot.mjs",
     "test": "node --test tests/*.test.mjs",
-    "scenario:aws": "node scripts/aws_scenario.mjs"
+    "scenario:aws": "node scripts/aws_scenario.mjs",
+    "dollars": "node scripts/dollar_claims.mjs"
   },
   "engines": {
     "node": ">=18"
