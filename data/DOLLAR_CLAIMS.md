@@ -2,7 +2,7 @@
 
 ## Pair
 
-- **~37% more concurrent sessions** → datacenter extra earn / day: **~$125k/day** on 16,384× H100 (see [`EARNINGS_PER_DAY.md`](./EARNINGS_PER_DAY.md)).
+- **~37% more concurrent sessions** → datacenter extra earn / day: **~$1.0M/day** on 16,384× H100 (see [`EARNINGS_PER_DAY.md`](./EARNINGS_PER_DAY.md)).
 - **~66% storage freed** → datacenter **storage-unit CapEx avoided**: see [`STORAGE_SAVINGS_DATACENTER.md`](./STORAGE_SAVINGS_DATACENTER.md).
 
 ## $ saved · 66% storage utilization (AWS datacenter scale)

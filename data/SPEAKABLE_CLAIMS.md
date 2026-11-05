@@ -60,12 +60,12 @@ Same fleet, demand fills the new slots (H100 capacity proxy ~$6.88/GPU-hr):
 
 | Fleet | **Extra earn / day** |
 |---|---:|
-| 2,048× H100 (cluster) | **~$15,640** |
-| 8,192× H100 (AZ / superpod) | **~$62,559** |
-| 16,384× H100 (hall-class) | **~$125,119** |
-| 65,536× H100 (campus-class) | **~$500,475** |
+| 2,048× H100 (cluster) | **~$125k** |
+| 8,192× H100 (AZ / superpod) | **~$500k** |
+| 16,384× H100 (hall-class) | **~$1.0M** |
+| 65,536× H100 (campus-class) | **~$4.0M** |
 
-One breath: **~$125k extra per day** on a 16,384× H100 hall-class fleet; **~$500k/day** campus-class.
+One breath: **~$1.0M extra per day** on a 16,384× H100 hall-class fleet; **~$4.0M/day** campus-class.
 
 Full note: [`EARNINGS_PER_DAY.md`](./EARNINGS_PER_DAY.md).
 
