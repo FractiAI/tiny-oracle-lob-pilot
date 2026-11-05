@@ -39,6 +39,22 @@ if concurrency is limited by memory pile \(M\), and Tiny cuts that pile by fract
 
 Reproduce sessions math from serving receipts; storage from `npm run pilot` in this repo.
 
+
+
+## Extra $ earned per day (from +37% sessions)
+
+Same fleet, demand fills the new slots:
+
+| Fleet | **Extra earn / day** |
+|---|---:|
+| 8× H100 | **~$489** |
+| 64× H100 | **~$3,910** |
+| 512× H100 pod | **~$31,280** |
+
+One breath: **~$3.9k extra per day** on 64× H100 (capacity proxy at ~$6.88/GPU-hr).  
+
+Full note: [`EARNINGS_PER_DAY.md`](./EARNINGS_PER_DAY.md).
+
 ## Dollars (illustrative)
 
 On an illustrative 64× H100 on-demand fleet, ~37% more sessions means roughly $86,811/mo less GPU spend for the same concurrency (or ~$118,930/mo of avoided expansion if you keep all 64). On 10 TiB of S3 with 70% high-rhyme LOBs, ~66% freed is about $106/mo storage (~$1,275/yr).

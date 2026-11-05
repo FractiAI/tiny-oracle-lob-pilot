@@ -1,0 +1,60 @@
+{
+  "schema": "tiny-oracle-lob-pilot/earnings-per-day/v1",
+  "generatedAt": "2026-11-05T05:28:26.020Z",
+  "claim": "~37% more concurrent sessions (weight-counted resident memory)",
+  "identity": "extra_daily_revenue ≈ 0.37 × baseline_daily_session_revenue (same fleet, demand fills slots)",
+  "capacityProxyUsdPerGpuHour": 6.88,
+  "fleets": [
+    {
+      "name": "1× H100",
+      "gpus": 1,
+      "baselineCapacityValuePerDayUsd": 165,
+      "extraEarnPerDayUsd": 61,
+      "extraEarnPerMonthUsd": 1860
+    },
+    {
+      "name": "8× H100 (p5.48xlarge)",
+      "gpus": 8,
+      "baselineCapacityValuePerDayUsd": 1321,
+      "extraEarnPerDayUsd": 489,
+      "extraEarnPerMonthUsd": 14876
+    },
+    {
+      "name": "64× H100",
+      "gpus": 64,
+      "baselineCapacityValuePerDayUsd": 10568,
+      "extraEarnPerDayUsd": 3910,
+      "extraEarnPerMonthUsd": 119012
+    },
+    {
+      "name": "512× H100 pod",
+      "gpus": 512,
+      "baselineCapacityValuePerDayUsd": 84541,
+      "extraEarnPerDayUsd": 31280,
+      "extraEarnPerMonthUsd": 952095
+    }
+  ],
+  "sessionAspExamples_64xH100": [
+    {
+      "aspUsd": 0.05,
+      "extraSessionsPerDay": 2273,
+      "extraEarnPerDayUsd": 114
+    },
+    {
+      "aspUsd": 0.1,
+      "extraSessionsPerDay": 2273,
+      "extraEarnPerDayUsd": 227
+    },
+    {
+      "aspUsd": 0.25,
+      "extraSessionsPerDay": 2273,
+      "extraEarnPerDayUsd": 568
+    },
+    {
+      "aspUsd": 1,
+      "extraSessionsPerDay": 2273,
+      "extraEarnPerDayUsd": 2273
+    }
+  ],
+  "oneBreath": "On a 64× H100 fleet, ~37% more concurrent sessions is about ~$3,910 extra per day if that capacity is sold at ~$6.88/GPU-hr equivalent; a 512-GPU pod is about ~$31,280/day."
+}

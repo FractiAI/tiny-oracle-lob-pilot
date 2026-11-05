@@ -1,3 +1,11 @@
+# Extra earnings per day (+37% sessions)
+
+On a 64× H100 fleet, ~37% more concurrent sessions is about ~$3,910 extra per day if that capacity is sold at ~$6.88/GPU-hr equivalent; a 512-GPU pod is about ~$31,280/day.
+
+See [`EARNINGS_PER_DAY.md`](./EARNINGS_PER_DAY.md).
+
+---
+
 # Speakable claims → dollars (illustrative AWS)
 
 ## One breath
