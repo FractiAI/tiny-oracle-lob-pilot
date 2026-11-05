@@ -29,6 +29,10 @@ Receipts:
 - `data/pilot_report.json` — machine receipt  
 - `data/FINDINGS.md` — plain-speak findings  
 
+## Speakable X% / Y%
+
+See [`data/SPEAKABLE_CLAIMS.md`](./data/SPEAKABLE_CLAIMS.md) — recommended **~37% more concurrent sessions** + **~66% storage freed** (labeled).
+
 ## AWS scenario (extrapolation)
 
 ```bash
