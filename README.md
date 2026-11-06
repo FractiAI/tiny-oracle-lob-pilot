@@ -50,3 +50,11 @@ See `data/AWS_SCENARIO.md` — illustrative freed S3 space from pilot ratios; re
 
 - Product kit: [tiny-footprint-workstation](https://github.com/FractiAI/tiny-footprint-workstation)  
 - Engine paper shelf: Tiny Gateway · Rhyming Templates (ENGINE_SHELF #52)
+
+## Shine labs (images / video / multidim)
+
+```bash
+npm run shine
+```
+
+See [`data/SHINE_LABS.md`](./data/SHINE_LABS.md).

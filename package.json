@@ -9,7 +9,8 @@
     "test": "node --test tests/*.test.mjs",
     "scenario:aws": "node scripts/aws_scenario.mjs",
     "dollars": "node scripts/dollar_claims.mjs",
-    "earnings": "node scripts/print_earnings.mjs"
+    "earnings": "node scripts/print_earnings.mjs",
+    "shine": "node scripts/run_shine_labs.mjs"
   },
   "engines": {
     "node": ">=18"

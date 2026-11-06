@@ -1,0 +1,235 @@
+{
+  "schema": "tiny-shine-labs/v1",
+  "generatedAt": "2026-11-06T01:27:19.399Z",
+  "labs": {
+    "imageLab": {
+      "label": "ui_images_shared_layout_n64",
+      "methods": {
+        "conventional": {
+          "raw": 11059200,
+          "gzip": 1783812,
+          "brotli": 1737420
+        },
+        "tiny_structural": {
+          "raw": 6564621,
+          "gzip": 1691994,
+          "brotli": 1664083
+        }
+      },
+      "vsConventional": {
+        "tiny_structural": {
+          "rawCutPct": 40.6,
+          "residualAfterGzipPct": 5.1,
+          "residualAfterBrotliPct": 4.2
+        }
+      }
+    },
+    "videoLab": {
+      "label": "structural_video_hud_n48",
+      "methods": {
+        "conventional": {
+          "raw": 8294400,
+          "gzip": 1337542,
+          "brotli": 1303667
+        },
+        "frame_diff_xor": {
+          "raw": 8294408,
+          "gzip": 2551606,
+          "brotli": 2160200
+        },
+        "tiny_structural": {
+          "raw": 4942541,
+          "gzip": 1268811,
+          "brotli": 1248363
+        }
+      },
+      "vsConventional": {
+        "frame_diff_xor": {
+          "rawCutPct": 0,
+          "residualAfterGzipPct": -90.8,
+          "residualAfterBrotliPct": -65.7
+        },
+        "tiny_structural": {
+          "rawCutPct": 40.4,
+          "residualAfterGzipPct": 5.1,
+          "residualAfterBrotliPct": 4.2
+        }
+      }
+    },
+    "pyramidLabHigh": {
+      "label": "nested_pyramid_high_rhyme_n128",
+      "methods": {
+        "conventional": {
+          "raw": 880426,
+          "gzip": 393565,
+          "brotli": 402763
+        },
+        "tiny_nested": {
+          "raw": 839687,
+          "gzip": 375579,
+          "brotli": 383978
+        }
+      },
+      "vsConventional": {
+        "tiny_nested": {
+          "rawCutPct": 4.6,
+          "residualAfterGzipPct": 4.6,
+          "residualAfterBrotliPct": 4.7
+        }
+      }
+    },
+    "pyramidLabLow": {
+      "label": "nested_pyramid_low_rhyme_n128",
+      "methods": {
+        "conventional": {
+          "raw": 858483,
+          "gzip": 389391,
+          "brotli": 398759
+        },
+        "tiny_nested": {
+          "raw": 817501,
+          "gzip": 371389,
+          "brotli": 380009
+        }
+      },
+      "vsConventional": {
+        "tiny_nested": {
+          "rawCutPct": 4.8,
+          "residualAfterGzipPct": 4.6,
+          "residualAfterBrotliPct": 4.7
+        }
+      }
+    },
+    "selective": {
+      "high": {
+        "coarse": {
+          "conventional": 172032,
+          "tiny": 832,
+          "level": "coarse"
+        },
+        "mid": {
+          "conventional": 172032,
+          "tiny": 32832,
+          "level": "mid"
+        },
+        "full": {
+          "conventional": 172032,
+          "tiny": 163904,
+          "level": "full"
+        }
+      }
+    },
+    "agentLabHigh": {
+      "label": "multi_agent_shared_world_high_n64",
+      "methods": {
+        "conventional": {
+          "raw": 186126,
+          "gzip": 3239,
+          "brotli": 1991
+        },
+        "tiny_shared_world": {
+          "raw": 8351,
+          "gzip": 1869,
+          "brotli": 1769
+        }
+      },
+      "vsConventional": {
+        "tiny_shared_world": {
+          "rawCutPct": 95.5,
+          "residualAfterGzipPct": 42.3,
+          "residualAfterBrotliPct": 11.2
+        }
+      }
+    },
+    "agentLabLow": {
+      "label": "multi_agent_shared_world_low_n64",
+      "methods": {
+        "conventional": {
+          "raw": 188062,
+          "gzip": 4682,
+          "brotli": 3303
+        },
+        "tiny_shared_world": {
+          "raw": 10287,
+          "gzip": 3185,
+          "brotli": 3064
+        }
+      },
+      "vsConventional": {
+        "tiny_shared_world": {
+          "rawCutPct": 94.5,
+          "residualAfterGzipPct": 32,
+          "residualAfterBrotliPct": 7.2
+        }
+      }
+    }
+  },
+  "findings": [
+    {
+      "domain": "UI / dashboard images (shared layout)",
+      "residualGzip": 5.1,
+      "residualBrotli": 4.2,
+      "rawCut": 40.6,
+      "score": "WEAK_VS_COMPRESSION",
+      "why": "Organization (chrome/sidebar/footer) is stable; content pane changes. Tiny stores static regions once."
+    },
+    {
+      "domain": "Structural video (HUD + changing pane)",
+      "residualGzip": 5.1,
+      "vsFrameDiffGzip": 50.3,
+      "rawCut": 40.4,
+      "score": "WEAK_VS_COMPRESSION",
+      "why": "Same as images over time. Frame-diff XOR is a codec-like baseline; Tiny is organizational layering."
+    },
+    {
+      "domain": "Nested vector pyramids — durable pack (high rhyme)",
+      "residualGzip": 4.6,
+      "rawCut": 4.6,
+      "score": "WEAK_VS_COMPRESSION",
+      "why": "As a stored blob, nested packing adds little once gzip runs — scales are already compressible."
+    },
+    {
+      "domain": "Nested vector pyramids — selective working set (coarse-only task)",
+      "residualGzip": 99.5,
+      "rawCut": 99.5,
+      "score": "SHINES",
+      "metricNote": "Not a gzip residual — runtime bytes if task only needs coarse scale",
+      "why": "Selective reconstruction: ship/reference shared coarse template instead of every full pyramid. This is a DRAM/runtime win."
+    },
+    {
+      "domain": "Nested vector pyramids — durable pack (low rhyme)",
+      "residualGzip": 4.6,
+      "rawCut": 4.8,
+      "score": "WEAK_VS_COMPRESSION",
+      "why": "When fine scales diverge, nested sharing weakens — compression catches more."
+    },
+    {
+      "domain": "Multi-agent shared world",
+      "residualGzip": 42.3,
+      "rawCut": 95.5,
+      "score": "SHINES",
+      "why": "Naive stacks duplicate the world per agent; Tiny keeps one world + agent deltas. Big win when world >> agent state."
+    },
+    {
+      "domain": "Multi-agent (low shared structure)",
+      "residualGzip": 32,
+      "rawCut": 94.5,
+      "score": "PROMISING",
+      "why": "Still helps if world blob is duplicated; agent divergence matters less than world size."
+    }
+  ],
+  "recommendation": {
+    "shineNow": [
+      "Nested vector pyramids — selective working set (coarse-only task)",
+      "Multi-agent shared world",
+      "Multi-agent (low shared structure)"
+    ],
+    "skipOrDefer": [
+      "UI / dashboard images (shared layout)",
+      "Structural video (HUD + changing pane)",
+      "Nested vector pyramids — durable pack (high rhyme)",
+      "Nested vector pyramids — durable pack (low rhyme)"
+    ],
+    "productRead": "Clearest shine after compression: multi-agent / multi-session shared-world state (stop duplicating the world). Clearest runtime shine: selective nested-vector working sets (coarse-only tasks). UI/video structural rhyme looks good raw but collapses under gzip — not a codec SKU. Still weak as generic photo/video or SQL storage."
+  }
+}
