@@ -29,7 +29,7 @@ Modern agent fleets default to an expensive habit: **copy the shared world into 
 
 **Product name:** Tiny Footprint Multi-Agent  
 **Primary runtime:** DRAM concurrency (more agents in the same memory budget)  
-**Engine:** same Tiny Gateway spine as the [Workstation kit](https://github.com/FractiAI/tiny-footprint-workstation)  
+**Engine:** same Tiny Gateway spine as the [Workstation kit](https://github.com/FractiAI/tiny-footprint-multi-agent)  
 **Not a new physics claim** — productization of shared-context concurrency.
 
 Live product story: [fractisi.vercel.app/product](https://fractisi.vercel.app/product/) · paper on site: [/library/papers/tiny-footprint-multi-agent](https://fractisi.vercel.app/library/papers/tiny-footprint-multi-agent/)
@@ -173,7 +173,7 @@ Evidence classification: **digital lab + product architecture**. Not a fab campa
 
 | Surface | Link |
 |---------|------|
-| **Product kit (Workstation)** | [FractiAI/tiny-footprint-workstation](https://github.com/FractiAI/tiny-footprint-workstation) |
+| **Product kit (Workstation)** | [FractiAI/tiny-footprint-workstation](https://github.com/FractiAI/tiny-footprint-multi-agent) |
 | **Commercial site** | [fractisi.vercel.app](https://fractisi.vercel.app) |
 | **Multi-Agent paper (site)** | [/library/papers/tiny-footprint-multi-agent](https://fractisi.vercel.app/library/papers/tiny-footprint-multi-agent/) |
 | **Engine shelf** | Tiny Gateway · Rhyming Templates (ENGINE_SHELF #52) |
