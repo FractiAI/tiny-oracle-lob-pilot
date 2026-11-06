@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Pilot: transparent Tiny Gateway template+delta path for Oracle-like LOB/JSON payloads (simulation \u2014 not an Oracle product).",
+  "description": "Tiny Footprint Multi-Agent empirical suite + paper (FractiSI). Shared-world template+delta lab; legacy Oracle-like LOB pilot retained as durable-store adapter sketch.",
   "scripts": {
     "pilot": "node scripts/run_pilot.mjs",
     "test": "node --test tests/*.test.mjs",
