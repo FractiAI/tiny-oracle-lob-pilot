@@ -1,7 +1,7 @@
 # Tiny Footprint Multi-Agent
 
 **Product brief** · FractiSI / Tiny Footprint family  
-**Lab basis:** shared-world multi-agent pack still cut **~42% after gzip** (and ~32% when agent state diverges more) vs naive per-agent world copies · `npm run shine` · `data/SHINE_LABS.md`
+**Lab basis:** `npm run multi-agent` · `data/MULTI_AGENT_EMPIRICAL.md` ·  shared-world multi-agent pack still cut **~42% after gzip** (and ~32% when agent state diverges more) vs naive per-agent world copies · `npm run shine` · `data/SHINE_LABS.md`
 
 ---
 

@@ -10,7 +10,8 @@
     "scenario:aws": "node scripts/aws_scenario.mjs",
     "dollars": "node scripts/dollar_claims.mjs",
     "earnings": "node scripts/print_earnings.mjs",
-    "shine": "node scripts/run_shine_labs.mjs"
+    "shine": "node scripts/run_shine_labs.mjs",
+    "multi-agent": "node scripts/run_multi_agent_empirical.mjs"
   },
   "engines": {
     "node": ">=18"
