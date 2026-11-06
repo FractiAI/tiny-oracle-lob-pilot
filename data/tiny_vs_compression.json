@@ -1,0 +1,71 @@
+{
+  "generatedAt": "2026-11-06T00:27:53.293Z",
+  "results": [
+    {
+      "mode": "identical",
+      "n": 1024,
+      "conventionalBytes": 613289,
+      "tinyBytes": 29185,
+      "tinyCutRawPct": 95.2,
+      "convGzip": 5753,
+      "tinyGzip": 3060,
+      "residualAfterGzipPct": 46.8,
+      "convBrotli": 2447,
+      "tinyBrotli": 1572,
+      "residualAfterBrotliPct": 35.8,
+      "gzipAloneCutPct": 99.1
+    },
+    {
+      "mode": "high_rhyme",
+      "n": 1024,
+      "conventionalBytes": 691320,
+      "tinyBytes": 230367,
+      "tinyCutRawPct": 66.7,
+      "convGzip": 16587,
+      "tinyGzip": 14278,
+      "residualAfterGzipPct": 13.9,
+      "convBrotli": 7636,
+      "tinyBrotli": 8498,
+      "residualAfterBrotliPct": -11.3,
+      "gzipAloneCutPct": 97.6
+    },
+    {
+      "mode": "medium_rhyme",
+      "n": 1024,
+      "conventionalBytes": 680353,
+      "tinyBytes": 284607,
+      "tinyCutRawPct": 58.2,
+      "convGzip": 18668,
+      "tinyGzip": 16058,
+      "residualAfterGzipPct": 14,
+      "convBrotli": 12017,
+      "tinyBrotli": 12127,
+      "residualAfterBrotliPct": -0.9,
+      "gzipAloneCutPct": 97.3
+    },
+    {
+      "mode": "low_rhyme",
+      "n": 1024,
+      "conventionalBytes": 692255,
+      "tinyBytes": 498285,
+      "tinyCutRawPct": 28,
+      "convGzip": 43592,
+      "tinyGzip": 39652,
+      "residualAfterGzipPct": 9,
+      "convBrotli": 31046,
+      "tinyBrotli": 30583,
+      "residualAfterBrotliPct": 1.5,
+      "gzipAloneCutPct": 93.7
+    }
+  ],
+  "latency": {
+    "high_rhyme_batch_n1024": {
+      "wireSave_1Gbps_ms": 0.018,
+      "wireSave_10Gbps_ms": 0.002,
+      "wireSave_100Gbps_ms": 0,
+      "rebuildCpuExtraMs_orderOfMagnitude": 9,
+      "netLatencyHelp_1Gbps": false,
+      "netLatencyHelp_10Gbps": false
+    }
+  }
+}
