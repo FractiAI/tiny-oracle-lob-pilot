@@ -1,0 +1,1058 @@
+{
+  "schema": "tiny-footprint-multi-agent/empirical/v1",
+  "generatedAt": "2026-11-06T01:37:07.563Z",
+  "operator": "SynthOBS Autonomous Agent · Syntheverse Sandbox",
+  "title": "Tiny Footprint Multi-Agent empirical sweep",
+  "headline": {
+    "flagshipResidualAfterGzipPct": 99.59,
+    "flagshipResidentReductionPct": 99.55,
+    "flagshipMoreAgentsIn8GiBPct": 182436.6,
+    "flagshipDensityGain": 1825.37,
+    "medianResidualAfterGzipPct": 98.31,
+    "bestResidualAfterGzipPct": 99.9,
+    "speak": "Flagship multi-agent case (256 agents, shared world): ~99.59% less pack size after gzip, ~99.55% less estimated resident shared-state bytes, ~182436.6% more agents in an 8 GiB budget (1825.37× density)."
+  },
+  "flagship": {
+    "nAgents": 256,
+    "worldMapLen": 8192,
+    "landmarks": 128,
+    "policyDocs": 16,
+    "rhyme": "high",
+    "pack": {
+      "conventionalBytes": 47835485,
+      "tinyBytes": 213226,
+      "rawReductionPct": 99.55,
+      "conventionalGzip": 19938074,
+      "tinyGzip": 80812,
+      "residualAfterGzipPct": 99.59
+    },
+    "resident": {
+      "conventionalBytes": 47832924,
+      "tinyBytes": 212949,
+      "reductionPct": 99.55,
+      "worldBytes": 186745,
+      "perAgentOnlyBytes": 102.4
+    },
+    "concurrency8GiB": {
+      "conventional": 45973,
+      "tiny": 83917548,
+      "moreAgentsPct": 182436.6,
+      "densityGain": 1825.37
+    }
+  },
+  "sweep": [
+    {
+      "nAgents": 16,
+      "worldMapLen": 1024,
+      "landmarks": 64,
+      "policyDocs": 8,
+      "rhyme": "high",
+      "pack": {
+        "conventionalBytes": 517235,
+        "tinyBytes": 33841,
+        "rawReductionPct": 93.46,
+        "conventionalGzip": 16363,
+        "tinyGzip": 11750,
+        "residualAfterGzipPct": 28.19
+      },
+      "resident": {
+        "conventionalBytes": 517074,
+        "tinyBytes": 33804,
+        "reductionPct": 93.46,
+        "worldBytes": 32218,
+        "perAgentOnlyBytes": 99.1
+      },
+      "concurrency8GiB": {
+        "conventional": 265801,
+        "tiny": 86657274,
+        "moreAgentsPct": 32502.3,
+        "densityGain": 326.02
+      }
+    },
+    {
+      "nAgents": 16,
+      "worldMapLen": 4096,
+      "landmarks": 64,
+      "policyDocs": 8,
+      "rhyme": "high",
+      "pack": {
+        "conventionalBytes": 1489459,
+        "tinyBytes": 94605,
+        "rawReductionPct": 93.65,
+        "conventionalGzip": 627916,
+        "tinyGzip": 39809,
+        "residualAfterGzipPct": 93.66
+      },
+      "resident": {
+        "conventionalBytes": 1489298,
+        "tinyBytes": 94568,
+        "reductionPct": 93.65,
+        "worldBytes": 92982,
+        "perAgentOnlyBytes": 99.1
+      },
+      "concurrency8GiB": {
+        "conventional": 92284,
+        "tiny": 86656661,
+        "moreAgentsPct": 93802.2,
+        "densityGain": 939.02
+      }
+    },
+    {
+      "nAgents": 16,
+      "worldMapLen": 16384,
+      "landmarks": 64,
+      "policyDocs": 8,
+      "rhyme": "high",
+      "pack": {
+        "conventionalBytes": 5374099,
+        "tinyBytes": 337395,
+        "rawReductionPct": 93.72,
+        "conventionalGzip": 2388665,
+        "tinyGzip": 149705,
+        "residualAfterGzipPct": 93.73
+      },
+      "resident": {
+        "conventionalBytes": 5373938,
+        "tinyBytes": 337358,
+        "reductionPct": 93.72,
+        "worldBytes": 335772,
+        "perAgentOnlyBytes": 99.1
+      },
+      "concurrency8GiB": {
+        "conventional": 25575,
+        "tiny": 86654212,
+        "moreAgentsPct": 338723.9,
+        "densityGain": 3388.24
+      }
+    },
+    {
+      "nAgents": 64,
+      "worldMapLen": 1024,
+      "landmarks": 64,
+      "policyDocs": 8,
+      "rhyme": "high",
+      "pack": {
+        "conventionalBytes": 2069021,
+        "tinyBytes": 38731,
+        "rawReductionPct": 98.13,
+        "conventionalGzip": 28596,
+        "tinyGzip": 12274,
+        "residualAfterGzipPct": 57.08
+      },
+      "resident": {
+        "conventionalBytes": 2068380,
+        "tinyBytes": 38646,
+        "reductionPct": 98.13,
+        "worldBytes": 32218,
+        "perAgentOnlyBytes": 100.4
+      },
+      "concurrency8GiB": {
+        "conventional": 265790,
+        "tiny": 85524852,
+        "moreAgentsPct": 32077.6,
+        "densityGain": 321.78
+      }
+    },
+    {
+      "nAgents": 64,
+      "worldMapLen": 4096,
+      "landmarks": 64,
+      "policyDocs": 8,
+      "rhyme": "high",
+      "pack": {
+        "conventionalBytes": 5957917,
+        "tinyBytes": 99495,
+        "rawReductionPct": 98.33,
+        "conventionalGzip": 2510946,
+        "tinyGzip": 40343,
+        "residualAfterGzipPct": 98.39
+      },
+      "resident": {
+        "conventionalBytes": 5957276,
+        "tinyBytes": 99410,
+        "reductionPct": 98.33,
+        "worldBytes": 92982,
+        "perAgentOnlyBytes": 100.4
+      },
+      "concurrency8GiB": {
+        "conventional": 92283,
+        "tiny": 85524247,
+        "moreAgentsPct": 92576.1,
+        "densityGain": 926.76
+      }
+    },
+    {
+      "nAgents": 64,
+      "worldMapLen": 16384,
+      "landmarks": 64,
+      "policyDocs": 8,
+      "rhyme": "high",
+      "pack": {
+        "conventionalBytes": 21496477,
+        "tinyBytes": 342285,
+        "rawReductionPct": 98.41,
+        "conventionalGzip": 9553754,
+        "tinyGzip": 150216,
+        "residualAfterGzipPct": 98.43
+      },
+      "resident": {
+        "conventionalBytes": 21495836,
+        "tinyBytes": 342200,
+        "reductionPct": 98.41,
+        "worldBytes": 335772,
+        "perAgentOnlyBytes": 100.4
+      },
+      "concurrency8GiB": {
+        "conventional": 25574,
+        "tiny": 85521830,
+        "moreAgentsPct": 334309.3,
+        "densityGain": 3344.09
+      }
+    },
+    {
+      "nAgents": 256,
+      "worldMapLen": 1024,
+      "landmarks": 64,
+      "policyDocs": 8,
+      "rhyme": "high",
+      "pack": {
+        "conventionalBytes": 8276573,
+        "tinyBytes": 58699,
+        "rawReductionPct": 99.29,
+        "conventionalGzip": 73569,
+        "tinyGzip": 14216,
+        "residualAfterGzipPct": 80.68
+      },
+      "resident": {
+        "conventionalBytes": 8274012,
+        "tinyBytes": 58422,
+        "reductionPct": 99.29,
+        "worldBytes": 32218,
+        "perAgentOnlyBytes": 102.4
+      },
+      "concurrency8GiB": {
+        "conventional": 265774,
+        "tiny": 83919058,
+        "moreAgentsPct": 31475.3,
+        "densityGain": 315.75
+      }
+    },
+    {
+      "nAgents": 256,
+      "worldMapLen": 4096,
+      "landmarks": 64,
+      "policyDocs": 8,
+      "rhyme": "high",
+      "pack": {
+        "conventionalBytes": 23832157,
+        "tinyBytes": 119463,
+        "rawReductionPct": 99.5,
+        "conventionalGzip": 10043058,
+        "tinyGzip": 42307,
+        "residualAfterGzipPct": 99.58
+      },
+      "resident": {
+        "conventionalBytes": 23829596,
+        "tinyBytes": 119186,
+        "reductionPct": 99.5,
+        "worldBytes": 92982,
+        "perAgentOnlyBytes": 102.4
+      },
+      "concurrency8GiB": {
+        "conventional": 92281,
+        "tiny": 83918464,
+        "moreAgentsPct": 90838,
+        "densityGain": 909.38
+      }
+    },
+    {
+      "nAgents": 256,
+      "worldMapLen": 16384,
+      "landmarks": 64,
+      "policyDocs": 8,
+      "rhyme": "high",
+      "pack": {
+        "conventionalBytes": 85986397,
+        "tinyBytes": 362253,
+        "rawReductionPct": 99.58,
+        "conventionalGzip": 38214547,
+        "tinyGzip": 152091,
+        "residualAfterGzipPct": 99.6
+      },
+      "resident": {
+        "conventionalBytes": 85983836,
+        "tinyBytes": 361976,
+        "reductionPct": 99.58,
+        "worldBytes": 335772,
+        "perAgentOnlyBytes": 102.4
+      },
+      "concurrency8GiB": {
+        "conventional": 25574,
+        "tiny": 83916092,
+        "moreAgentsPct": 328030.5,
+        "densityGain": 3281.3
+      }
+    },
+    {
+      "nAgents": 1024,
+      "worldMapLen": 1024,
+      "landmarks": 64,
+      "policyDocs": 8,
+      "rhyme": "high",
+      "pack": {
+        "conventionalBytes": 33107741,
+        "tinyBytes": 139531,
+        "rawReductionPct": 99.58,
+        "conventionalGzip": 253616,
+        "tinyGzip": 21242,
+        "residualAfterGzipPct": 91.62
+      },
+      "resident": {
+        "conventionalBytes": 33097500,
+        "tinyBytes": 138486,
+        "reductionPct": 99.58,
+        "worldBytes": 32218,
+        "perAgentOnlyBytes": 103.8
+      },
+      "concurrency8GiB": {
+        "conventional": 265763,
+        "tiny": 82772424,
+        "moreAgentsPct": 31045.2,
+        "densityGain": 311.45
+      }
+    },
+    {
+      "nAgents": 1024,
+      "worldMapLen": 4096,
+      "landmarks": 64,
+      "policyDocs": 8,
+      "rhyme": "high",
+      "pack": {
+        "conventionalBytes": 95330077,
+        "tinyBytes": 200295,
+        "rawReductionPct": 99.79,
+        "conventionalGzip": 40172728,
+        "tinyGzip": 49564,
+        "residualAfterGzipPct": 99.88
+      },
+      "resident": {
+        "conventionalBytes": 95319836,
+        "tinyBytes": 199250,
+        "reductionPct": 99.79,
+        "worldBytes": 92982,
+        "perAgentOnlyBytes": 103.8
+      },
+      "concurrency8GiB": {
+        "conventional": 92279,
+        "tiny": 82771839,
+        "moreAgentsPct": 89597.4,
+        "densityGain": 896.97
+      }
+    },
+    {
+      "nAgents": 1024,
+      "worldMapLen": 16384,
+      "landmarks": 64,
+      "policyDocs": 8,
+      "rhyme": "high",
+      "pack": {
+        "conventionalBytes": 343947037,
+        "tinyBytes": 443085,
+        "rawReductionPct": 99.87,
+        "conventionalGzip": 152859047,
+        "tinyGzip": 158892,
+        "residualAfterGzipPct": 99.9
+      },
+      "resident": {
+        "conventionalBytes": 343936796,
+        "tinyBytes": 442040,
+        "reductionPct": 99.87,
+        "worldBytes": 335772,
+        "perAgentOnlyBytes": 103.8
+      },
+      "concurrency8GiB": {
+        "conventional": 25574,
+        "tiny": 82769499,
+        "moreAgentsPct": 323547.1,
+        "densityGain": 3236.47
+      }
+    },
+    {
+      "nAgents": 16,
+      "worldMapLen": 1024,
+      "landmarks": 64,
+      "policyDocs": 8,
+      "rhyme": "medium",
+      "pack": {
+        "conventionalBytes": 518124,
+        "tinyBytes": 34730,
+        "rawReductionPct": 93.3,
+        "conventionalGzip": 16963,
+        "tinyGzip": 12323,
+        "residualAfterGzipPct": 27.35
+      },
+      "resident": {
+        "conventionalBytes": 517963,
+        "tinyBytes": 34693,
+        "reductionPct": 93.3,
+        "worldBytes": 32218,
+        "perAgentOnlyBytes": 154.7
+      },
+      "concurrency8GiB": {
+        "conventional": 265345,
+        "tiny": 55530682,
+        "moreAgentsPct": 20827.7,
+        "densityGain": 209.28
+      }
+    },
+    {
+      "nAgents": 16,
+      "worldMapLen": 4096,
+      "landmarks": 64,
+      "policyDocs": 8,
+      "rhyme": "medium",
+      "pack": {
+        "conventionalBytes": 1490353,
+        "tinyBytes": 95499,
+        "rawReductionPct": 93.59,
+        "conventionalGzip": 628419,
+        "tinyGzip": 40335,
+        "residualAfterGzipPct": 93.58
+      },
+      "resident": {
+        "conventionalBytes": 1490192,
+        "tinyBytes": 95462,
+        "reductionPct": 93.59,
+        "worldBytes": 92982,
+        "perAgentOnlyBytes": 155
+      },
+      "concurrency8GiB": {
+        "conventional": 92229,
+        "tiny": 55418332,
+        "moreAgentsPct": 59987.8,
+        "densityGain": 600.88
+      }
+    },
+    {
+      "nAgents": 16,
+      "worldMapLen": 16384,
+      "landmarks": 64,
+      "policyDocs": 8,
+      "rhyme": "medium",
+      "pack": {
+        "conventionalBytes": 5374993,
+        "tinyBytes": 338289,
+        "rawReductionPct": 93.71,
+        "conventionalGzip": 2389152,
+        "tinyGzip": 150242,
+        "residualAfterGzipPct": 93.71
+      },
+      "resident": {
+        "conventionalBytes": 5374832,
+        "tinyBytes": 338252,
+        "reductionPct": 93.71,
+        "worldBytes": 335772,
+        "perAgentOnlyBytes": 155
+      },
+      "concurrency8GiB": {
+        "conventional": 25570,
+        "tiny": 55416766,
+        "moreAgentsPct": 216625.7,
+        "densityGain": 2167.26
+      }
+    },
+    {
+      "nAgents": 64,
+      "worldMapLen": 1024,
+      "landmarks": 64,
+      "policyDocs": 8,
+      "rhyme": "medium",
+      "pack": {
+        "conventionalBytes": 2072586,
+        "tinyBytes": 42296,
+        "rawReductionPct": 97.96,
+        "conventionalGzip": 30994,
+        "tinyGzip": 14518,
+        "residualAfterGzipPct": 53.16
+      },
+      "resident": {
+        "conventionalBytes": 2071945,
+        "tinyBytes": 42211,
+        "reductionPct": 97.96,
+        "worldBytes": 32218,
+        "perAgentOnlyBytes": 156.1
+      },
+      "concurrency8GiB": {
+        "conventional": 265333,
+        "tiny": 55013884,
+        "moreAgentsPct": 20633.9,
+        "densityGain": 207.34
+      }
+    },
+    {
+      "nAgents": 64,
+      "worldMapLen": 4096,
+      "landmarks": 64,
+      "policyDocs": 8,
+      "rhyme": "medium",
+      "pack": {
+        "conventionalBytes": 5961480,
+        "tinyBytes": 103058,
+        "rawReductionPct": 98.27,
+        "conventionalGzip": 2512904,
+        "tinyGzip": 42479,
+        "residualAfterGzipPct": 98.31
+      },
+      "resident": {
+        "conventionalBytes": 5960839,
+        "tinyBytes": 102973,
+        "reductionPct": 98.27,
+        "worldBytes": 92982,
+        "perAgentOnlyBytes": 156.1
+      },
+      "concurrency8GiB": {
+        "conventional": 92227,
+        "tiny": 55024508,
+        "moreAgentsPct": 59562,
+        "densityGain": 596.62
+      }
+    },
+    {
+      "nAgents": 64,
+      "worldMapLen": 16384,
+      "landmarks": 64,
+      "policyDocs": 8,
+      "rhyme": "medium",
+      "pack": {
+        "conventionalBytes": 21500053,
+        "tinyBytes": 345861,
+        "rawReductionPct": 98.39,
+        "conventionalGzip": 9555732,
+        "tinyGzip": 152353,
+        "residualAfterGzipPct": 98.41
+      },
+      "resident": {
+        "conventionalBytes": 21499412,
+        "tinyBytes": 345776,
+        "reductionPct": 98.39,
+        "worldBytes": 335772,
+        "perAgentOnlyBytes": 156.3
+      },
+      "concurrency8GiB": {
+        "conventional": 25570,
+        "tiny": 54951451,
+        "moreAgentsPct": 214805.9,
+        "densityGain": 2149.06
+      }
+    },
+    {
+      "nAgents": 256,
+      "worldMapLen": 1024,
+      "landmarks": 64,
+      "policyDocs": 8,
+      "rhyme": "medium",
+      "pack": {
+        "conventionalBytes": 8290760,
+        "tinyBytes": 72886,
+        "rawReductionPct": 99.12,
+        "conventionalGzip": 83968,
+        "tinyGzip": 22855,
+        "residualAfterGzipPct": 72.78
+      },
+      "resident": {
+        "conventionalBytes": 8288199,
+        "tinyBytes": 72609,
+        "reductionPct": 99.12,
+        "worldBytes": 32218,
+        "perAgentOnlyBytes": 157.8
+      },
+      "concurrency8GiB": {
+        "conventional": 265319,
+        "tiny": 54443192,
+        "moreAgentsPct": 20419.9,
+        "densityGain": 205.2
+      }
+    },
+    {
+      "nAgents": 256,
+      "worldMapLen": 4096,
+      "landmarks": 64,
+      "policyDocs": 8,
+      "rhyme": "medium",
+      "pack": {
+        "conventionalBytes": 23846264,
+        "tinyBytes": 133570,
+        "rawReductionPct": 99.44,
+        "conventionalGzip": 10050895,
+        "tinyGzip": 50714,
+        "residualAfterGzipPct": 99.5
+      },
+      "resident": {
+        "conventionalBytes": 23843703,
+        "tinyBytes": 133293,
+        "reductionPct": 99.44,
+        "worldBytes": 92982,
+        "perAgentOnlyBytes": 157.5
+      },
+      "concurrency8GiB": {
+        "conventional": 92226,
+        "tiny": 54550853,
+        "moreAgentsPct": 59049.1,
+        "densityGain": 591.49
+      }
+    },
+    {
+      "nAgents": 256,
+      "worldMapLen": 16384,
+      "landmarks": 64,
+      "policyDocs": 8,
+      "rhyme": "medium",
+      "pack": {
+        "conventionalBytes": 86000548,
+        "tinyBytes": 376404,
+        "rawReductionPct": 99.56,
+        "conventionalGzip": 38222440,
+        "tinyGzip": 160554,
+        "residualAfterGzipPct": 99.58
+      },
+      "resident": {
+        "conventionalBytes": 85997987,
+        "tinyBytes": 376127,
+        "reductionPct": 99.56,
+        "worldBytes": 335772,
+        "perAgentOnlyBytes": 157.6
+      },
+      "concurrency8GiB": {
+        "conventional": 25570,
+        "tiny": 54489835,
+        "moreAgentsPct": 213000.6,
+        "densityGain": 2131.01
+      }
+    },
+    {
+      "nAgents": 1024,
+      "worldMapLen": 1024,
+      "landmarks": 64,
+      "policyDocs": 8,
+      "rhyme": "medium",
+      "pack": {
+        "conventionalBytes": 33163604,
+        "tinyBytes": 195394,
+        "rawReductionPct": 99.41,
+        "conventionalGzip": 295778,
+        "tinyGzip": 54793,
+        "residualAfterGzipPct": 81.47
+      },
+      "resident": {
+        "conventionalBytes": 33153363,
+        "tinyBytes": 194349,
+        "reductionPct": 99.41,
+        "worldBytes": 32218,
+        "perAgentOnlyBytes": 158.3
+      },
+      "concurrency8GiB": {
+        "conventional": 265315,
+        "tiny": 54252795,
+        "moreAgentsPct": 20348.4,
+        "densityGain": 204.48
+      }
+    },
+    {
+      "nAgents": 1024,
+      "worldMapLen": 4096,
+      "landmarks": 64,
+      "policyDocs": 8,
+      "rhyme": "medium",
+      "pack": {
+        "conventionalBytes": 95385876,
+        "tinyBytes": 256094,
+        "rawReductionPct": 99.73,
+        "conventionalGzip": 40203663,
+        "tinyGzip": 82689,
+        "residualAfterGzipPct": 99.79
+      },
+      "resident": {
+        "conventionalBytes": 95375635,
+        "tinyBytes": 255049,
+        "reductionPct": 99.73,
+        "worldBytes": 92982,
+        "perAgentOnlyBytes": 158.3
+      },
+      "concurrency8GiB": {
+        "conventional": 92225,
+        "tiny": 54273836,
+        "moreAgentsPct": 58749.4,
+        "densityGain": 588.49
+      }
+    },
+    {
+      "nAgents": 1024,
+      "worldMapLen": 16384,
+      "landmarks": 64,
+      "policyDocs": 8,
+      "rhyme": "medium",
+      "pack": {
+        "conventionalBytes": 344002901,
+        "tinyBytes": 498949,
+        "rawReductionPct": 99.85,
+        "conventionalGzip": 152889894,
+        "tinyGzip": 192629,
+        "residualAfterGzipPct": 99.87
+      },
+      "resident": {
+        "conventionalBytes": 343992660,
+        "tinyBytes": 497904,
+        "reductionPct": 99.86,
+        "worldBytes": 335772,
+        "perAgentOnlyBytes": 158.3
+      },
+      "concurrency8GiB": {
+        "conventional": 25570,
+        "tiny": 54250543,
+        "moreAgentsPct": 212064.8,
+        "densityGain": 2121.65
+      }
+    },
+    {
+      "nAgents": 16,
+      "worldMapLen": 1024,
+      "landmarks": 64,
+      "policyDocs": 8,
+      "rhyme": "low",
+      "pack": {
+        "conventionalBytes": 519908,
+        "tinyBytes": 36514,
+        "rawReductionPct": 92.98,
+        "conventionalGzip": 17720,
+        "tinyGzip": 13028,
+        "residualAfterGzipPct": 26.48
+      },
+      "resident": {
+        "conventionalBytes": 519747,
+        "tinyBytes": 36477,
+        "reductionPct": 92.98,
+        "worldBytes": 32218,
+        "perAgentOnlyBytes": 266.2
+      },
+      "concurrency8GiB": {
+        "conventional": 264434,
+        "tiny": 32270119,
+        "moreAgentsPct": 12103.5,
+        "densityGain": 122.03
+      }
+    },
+    {
+      "nAgents": 16,
+      "worldMapLen": 4096,
+      "landmarks": 64,
+      "policyDocs": 8,
+      "rhyme": "low",
+      "pack": {
+        "conventionalBytes": 1492131,
+        "tinyBytes": 97277,
+        "rawReductionPct": 93.48,
+        "conventionalGzip": 629355,
+        "tinyGzip": 41060,
+        "residualAfterGzipPct": 93.48
+      },
+      "resident": {
+        "conventionalBytes": 1491970,
+        "tinyBytes": 97240,
+        "reductionPct": 93.48,
+        "worldBytes": 92982,
+        "perAgentOnlyBytes": 266.1
+      },
+      "concurrency8GiB": {
+        "conventional": 92119,
+        "tiny": 32277469,
+        "moreAgentsPct": 34938.9,
+        "densityGain": 350.39
+      }
+    },
+    {
+      "nAgents": 16,
+      "worldMapLen": 16384,
+      "landmarks": 64,
+      "policyDocs": 8,
+      "rhyme": "low",
+      "pack": {
+        "conventionalBytes": 5376762,
+        "tinyBytes": 340058,
+        "rawReductionPct": 93.68,
+        "conventionalGzip": 2390061,
+        "tinyGzip": 150920,
+        "residualAfterGzipPct": 93.69
+      },
+      "resident": {
+        "conventionalBytes": 5376601,
+        "tinyBytes": 340021,
+        "reductionPct": 93.68,
+        "worldBytes": 335772,
+        "perAgentOnlyBytes": 265.6
+      },
+      "concurrency8GiB": {
+        "conventional": 25562,
+        "tiny": 32344923,
+        "moreAgentsPct": 126435.2,
+        "densityGain": 1265.35
+      }
+    },
+    {
+      "nAgents": 64,
+      "worldMapLen": 1024,
+      "landmarks": 64,
+      "policyDocs": 8,
+      "rhyme": "low",
+      "pack": {
+        "conventionalBytes": 2079868,
+        "tinyBytes": 49578,
+        "rawReductionPct": 97.62,
+        "conventionalGzip": 33900,
+        "tinyGzip": 17309,
+        "residualAfterGzipPct": 48.94
+      },
+      "resident": {
+        "conventionalBytes": 2079227,
+        "tinyBytes": 49493,
+        "reductionPct": 97.62,
+        "worldBytes": 32218,
+        "perAgentOnlyBytes": 269.9
+      },
+      "concurrency8GiB": {
+        "conventional": 264403,
+        "tiny": 31823661,
+        "moreAgentsPct": 11936,
+        "densityGain": 120.36
+      }
+    },
+    {
+      "nAgents": 64,
+      "worldMapLen": 4096,
+      "landmarks": 64,
+      "policyDocs": 8,
+      "rhyme": "low",
+      "pack": {
+        "conventionalBytes": 5968737,
+        "tinyBytes": 110315,
+        "rawReductionPct": 98.15,
+        "conventionalGzip": 2516443,
+        "tinyGzip": 45295,
+        "residualAfterGzipPct": 98.2
+      },
+      "resident": {
+        "conventionalBytes": 5968096,
+        "tinyBytes": 110230,
+        "reductionPct": 98.15,
+        "worldBytes": 92982,
+        "perAgentOnlyBytes": 269.5
+      },
+      "concurrency8GiB": {
+        "conventional": 92115,
+        "tiny": 31873252,
+        "moreAgentsPct": 34501.6,
+        "densityGain": 346.02
+      }
+    },
+    {
+      "nAgents": 64,
+      "worldMapLen": 16384,
+      "landmarks": 64,
+      "policyDocs": 8,
+      "rhyme": "low",
+      "pack": {
+        "conventionalBytes": 21507284,
+        "tinyBytes": 353092,
+        "rawReductionPct": 98.36,
+        "conventionalGzip": 9559394,
+        "tinyGzip": 155112,
+        "residualAfterGzipPct": 98.38
+      },
+      "resident": {
+        "conventionalBytes": 21506643,
+        "tinyBytes": 353007,
+        "reductionPct": 98.36,
+        "worldBytes": 335772,
+        "perAgentOnlyBytes": 269.3
+      },
+      "concurrency8GiB": {
+        "conventional": 25562,
+        "tiny": 31896392,
+        "moreAgentsPct": 124680.5,
+        "densityGain": 1247.81
+      }
+    },
+    {
+      "nAgents": 256,
+      "worldMapLen": 1024,
+      "landmarks": 64,
+      "policyDocs": 8,
+      "rhyme": "low",
+      "pack": {
+        "conventionalBytes": 8320860,
+        "tinyBytes": 102986,
+        "rawReductionPct": 98.76,
+        "conventionalGzip": 1055916,
+        "tinyGzip": 33607,
+        "residualAfterGzipPct": 96.82
+      },
+      "resident": {
+        "conventionalBytes": 8318299,
+        "tinyBytes": 102709,
+        "reductionPct": 98.77,
+        "worldBytes": 32218,
+        "perAgentOnlyBytes": 275.4
+      },
+      "concurrency8GiB": {
+        "conventional": 264359,
+        "tiny": 31195684,
+        "moreAgentsPct": 11700.5,
+        "densityGain": 118.01
+      }
+    },
+    {
+      "nAgents": 256,
+      "worldMapLen": 4096,
+      "landmarks": 64,
+      "policyDocs": 8,
+      "rhyme": "low",
+      "pack": {
+        "conventionalBytes": 23876456,
+        "tinyBytes": 163762,
+        "rawReductionPct": 99.31,
+        "conventionalGzip": 10065330,
+        "tinyGzip": 61645,
+        "residualAfterGzipPct": 99.39
+      },
+      "resident": {
+        "conventionalBytes": 23873895,
+        "tinyBytes": 163485,
+        "reductionPct": 99.32,
+        "worldBytes": 92982,
+        "perAgentOnlyBytes": 275.4
+      },
+      "concurrency8GiB": {
+        "conventional": 92109,
+        "tiny": 31190154,
+        "moreAgentsPct": 33762.2,
+        "densityGain": 338.62
+      }
+    },
+    {
+      "nAgents": 256,
+      "worldMapLen": 16384,
+      "landmarks": 64,
+      "policyDocs": 8,
+      "rhyme": "low",
+      "pack": {
+        "conventionalBytes": 86030655,
+        "tinyBytes": 406511,
+        "rawReductionPct": 99.53,
+        "conventionalGzip": 38237064,
+        "tinyGzip": 171598,
+        "residualAfterGzipPct": 99.55
+      },
+      "resident": {
+        "conventionalBytes": 86028094,
+        "tinyBytes": 406234,
+        "reductionPct": 99.53,
+        "worldBytes": 335772,
+        "perAgentOnlyBytes": 275.2
+      },
+      "concurrency8GiB": {
+        "conventional": 25561,
+        "tiny": 31207420,
+        "moreAgentsPct": 121990,
+        "densityGain": 1220.9
+      }
+    },
+    {
+      "nAgents": 1024,
+      "worldMapLen": 1024,
+      "landmarks": 64,
+      "policyDocs": 8,
+      "rhyme": "low",
+      "pack": {
+        "conventionalBytes": 33286304,
+        "tinyBytes": 318094,
+        "rawReductionPct": 99.04,
+        "conventionalGzip": 6824804,
+        "tinyGzip": 98343,
+        "residualAfterGzipPct": 98.56
+      },
+      "resident": {
+        "conventionalBytes": 33276063,
+        "tinyBytes": 317049,
+        "reductionPct": 99.05,
+        "worldBytes": 32218,
+        "perAgentOnlyBytes": 278.2
+      },
+      "concurrency8GiB": {
+        "conventional": 264336,
+        "tiny": 30881680,
+        "moreAgentsPct": 11582.7,
+        "densityGain": 116.83
+      }
+    },
+    {
+      "nAgents": 1024,
+      "worldMapLen": 4096,
+      "landmarks": 64,
+      "policyDocs": 8,
+      "rhyme": "low",
+      "pack": {
+        "conventionalBytes": 95508593,
+        "tinyBytes": 378811,
+        "rawReductionPct": 99.6,
+        "conventionalGzip": 40261623,
+        "tinyGzip": 126404,
+        "residualAfterGzipPct": 99.69
+      },
+      "resident": {
+        "conventionalBytes": 95498352,
+        "tinyBytes": 377766,
+        "reductionPct": 99.6,
+        "worldBytes": 92982,
+        "perAgentOnlyBytes": 278.1
+      },
+      "concurrency8GiB": {
+        "conventional": 92107,
+        "tiny": 30886558,
+        "moreAgentsPct": 33433.3,
+        "densityGain": 335.33
+      }
+    },
+    {
+      "nAgents": 1024,
+      "worldMapLen": 16384,
+      "landmarks": 64,
+      "policyDocs": 8,
+      "rhyme": "low",
+      "pack": {
+        "conventionalBytes": 344125511,
+        "tinyBytes": 621559,
+        "rawReductionPct": 99.82,
+        "conventionalGzip": 152948737,
+        "tinyGzip": 236363,
+        "residualAfterGzipPct": 99.85
+      },
+      "resident": {
+        "conventionalBytes": 344115270,
+        "tinyBytes": 620514,
+        "reductionPct": 99.82,
+        "worldBytes": 335772,
+        "perAgentOnlyBytes": 278.1
+      },
+      "concurrency8GiB": {
+        "conventional": 25561,
+        "tiny": 30890241,
+        "moreAgentsPct": 120749.1,
+        "densityGain": 1208.49
+      }
+    }
+  ],
+  "honesty": [
+    "In-process JSON + gzip lab — not production agent runtime, not GPU HBM attestation.",
+    "Resident bytes are serialized-size proxies for structuredClone-style duplication, not RSS from a live engine.",
+    "8 GiB concurrency is a density arithmetic proxy."
+  ]
+}
