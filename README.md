@@ -58,3 +58,7 @@ npm run shine
 ```
 
 See [`data/SHINE_LABS.md`](./data/SHINE_LABS.md).
+
+## Product · Tiny Footprint Multi-Agent
+
+See [`data/PRODUCT_TINY_FOOTPRINT_MULTI_AGENT.md`](./data/PRODUCT_TINY_FOOTPRINT_MULTI_AGENT.md).
