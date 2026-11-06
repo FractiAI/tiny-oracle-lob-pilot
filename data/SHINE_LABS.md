@@ -35,7 +35,7 @@ If a task only needs the coarse scale of a high-rhyme pyramid batch, Tiny workin
 
 Clearest shine after compression: multi-agent / multi-session shared-world state (stop duplicating the world). Clearest runtime shine: selective nested-vector working sets (coarse-only tasks). UI/video structural rhyme looks good raw but collapses under gzip — not a codec SKU. Still weak as generic photo/video or SQL storage.
 
-Keep **DRAM/serving** as the lead product. Candidate *adjacent* bets (not SQL): **HUD/UI stream memory**, **shared-world multi-agent / multi-session state**, **selective multi-scale tensors**.
+Keep **DRAM/serving** as the lead product. Strongest *adjacent* bets (not SQL, not codecs): **shared-world multi-agent / multi-session state**, **selective multi-scale nested vectors**. UI/HUD streams only if the win is live resident duplication (DRAM), not file size after gzip.
 
 ## Honesty
 
